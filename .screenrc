@@ -1,0 +1,34 @@
+#エンコードの指定
+#エンコード周りの設定
+defencoding UTF-8
+defkanji UTF-8
+encoding UTF-8 UTF-8
+
+#256色で表示
+defbce on
+term xterm-256color
+termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+#ステータスラインの表示
+hardstatus on
+
+#ステータスライン詳細設定
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+#シェルで実行しているコマンド名を表示するための設定
+shelltitle "$ |bash"
+
+#起動画面off
+startup_message off
+
+#回線切断時に自動でデタッチ
+autodetach on
+
+#スクロールバッファの行数を指定
+defscrollback 100000
+
+#ビジュアルベルを止める
+vbell off
+
+#エスケープのキーバインド変更
+escape ^Ee
