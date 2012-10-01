@@ -250,9 +250,10 @@ let g:Powerline_symbols='fancy'
 filetype off  
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle/
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 "completion plugin
 NeoBundle 'Shougo/neobundle.vim'
