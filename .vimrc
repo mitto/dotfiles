@@ -282,6 +282,7 @@ NeoBundle 'pangloss/vim-javascript'
 "document plugin
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'hotchpotch/perldoc-vim'
+NeoBundle 'vim-jp/vimdoc-ja'
 
 "develop plugin
 NeoBundle 'thinca/vim-quickrun'
