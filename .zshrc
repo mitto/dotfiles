@@ -12,16 +12,21 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 #====================================
 # コマンドエイリアス
 #====================================
-alias vi='vim'
-alias sudo='sudo '
-alias ls='ls --color=auto'
-alias l='ls -laF'
-alias ll='l'
 case ${OSTYPE} in
   darwin*)
+    alias ls='ls -G'
     alias idm='wine ~/Dropbox/idm/IDM.exe'
     alias cisco='screen /dev/tty.usbserial 9600'
+    ;;
+  linux*)
+    alias ls='ls --color=auto'
+    ;;
 esac
+
+alias vi='vim'
+alias sudo='sudo '
+alias l='ls -laF'
+alias ll='l'
 
 
 #====================================
