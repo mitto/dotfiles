@@ -1,5 +1,6 @@
 [ui]
 username = mitto nagisa <mitto@mittostar.info>
+ssh = ssh -i ~/.ssh/bitbucket
 
 [extensions]
 color =
