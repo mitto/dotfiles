@@ -260,6 +260,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'taichouchou2/vim-rsense'
 
 "syntax plugin
 NeoBundle 'html5.vim'
