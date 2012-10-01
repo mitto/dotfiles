@@ -12,13 +12,16 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 #====================================
 # コマンドエイリアス
 #====================================
-alias ls='ls -G'
 alias vi='vim'
 alias sudo='sudo '
+alias ls='ls --color=auto'
 alias l='ls -laF'
 alias ll='l'
-alias idm='wine ~/Dropbox/idm/IDM.exe'
-alias cisco='screen /dev/tty.usbserial 9600'
+case ${OSTYPE} in
+  darwin*)
+    alias idm='wine ~/Dropbox/idm/IDM.exe'
+    alias cisco='screen /dev/tty.usbserial 9600'
+esac
 
 
 #====================================
