@@ -15,3 +15,14 @@ do
   fi
 
 done
+
+
+if [ ! -e $HOME/.vim/.backup ]; then
+  mkdir $HOME/.vim/.backup
+fi
+
+if [ ! -e $HOME/.vim/.swap ]; then
+  mkdir $HOME/.vim/.swap
+fi
+
+

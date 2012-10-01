@@ -43,18 +43,18 @@ set whichwrap=b,s,[,],<,>,~,h,l
 "バックアップ関連
 "------------------------------------------
 "ファイルのバックアップをとっておくか
-"set backup
-set nobackup
+set backup
+"set nobackup
 
 "ファイルの上書き前にバックアップを作るか(backupをオンにしておかない場合は上書き成功後削除される)
 set writebackup
 set backupcopy=yes
 
 "バックアップディレクトリ
-"set backupdir=~/.backup
+set backupdir=~/.vim/.backup
 
 "スワップファイルのディレクトリ
-"set directory=~/.swap
+set directory=~/.vim/.swap
 
 "------------------------------------------
 "表示関連
