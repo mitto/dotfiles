@@ -18,10 +18,12 @@ done
 
 
 if [ ! -e $HOME/.vim/.backup ]; then
+  echo created vim backup folder : $HOME/.vim/.backup
   mkdir $HOME/.vim/.backup
 fi
 
 if [ ! -e $HOME/.vim/.swap ]; then
+  echo created vim swap folder : $HOME/.vim/.swap
   mkdir $HOME/.vim/.swap
 fi
 
