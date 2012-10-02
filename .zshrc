@@ -6,7 +6,15 @@ export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
 #パスの設定
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/Users/mitto/bin:/usr/local/share/python"
+case ${OSTYPE} in
+  darwin*)
+    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    export PATH="$PATH:/usr/local/share/python"
+    export PATH="$PATH:/Users/mitto/bin"
+    ;;
+  *)
+    ;;
+esac
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 #====================================
