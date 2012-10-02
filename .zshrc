@@ -10,9 +10,9 @@ case ${OSTYPE} in
   darwin*)
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
     export PATH="$PATH:/usr/local/share/python"
-    export PATH="$PATH:/Users/mitto/bin"
     ;;
   *)
+    export PATH="$PATH:$HOME/bin"
     ;;
 esac
 export LSCOLORS=gxfxcxdxbxegedabagacad
