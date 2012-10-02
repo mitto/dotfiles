@@ -13,6 +13,12 @@ case ${OSTYPE} in
     ;;
   *)
     export PATH="$PATH:$HOME/bin"
+
+    #rbenvの設定
+    if [ -e $HOME/.rbenv ]; then
+      export PATH="$HOME/.rbenv/bin:$PATH"
+      eval "$(rbenv init -)"
+    fi
     ;;
 esac
 export LSCOLORS=gxfxcxdxbxegedabagacad
