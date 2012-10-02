@@ -18,7 +18,7 @@ case ${OSTYPE} in
     alias idm='wine ~/Dropbox/idm/IDM.exe'
     alias cisco='screen /dev/tty.usbserial 9600'
     ;;
-  linux*)
+  *)
     alias ls='ls --color=auto'
     ;;
 esac
