@@ -31,4 +31,4 @@ defscrollback 100000
 vbell off
 
 #エスケープのキーバインド変更
-escape ^Ee
+escape ^Et
