@@ -32,3 +32,6 @@ vbell off
 
 #エスケープのキーバインド変更
 escape ^Et
+
+#alternate screenを使うようにする
+altscreen on
