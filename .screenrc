@@ -31,7 +31,7 @@ defscrollback 100000
 vbell off
 
 #エスケープのキーバインド変更
-escape ^Et
+escape ^Tt
 
 #alternate screenを使うようにする
 altscreen on
