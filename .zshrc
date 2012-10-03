@@ -100,7 +100,7 @@ setopt magic_equal_subst       # コマンドラインの引数で --prefix=/usr
 setopt brace_ccl               #  {a-c} を a b c に展開する機能を使えるようにする
 setopt list_packed             # 補完候補をできるだけ詰めて表示する
 setopt list_types              # 補完候補にファイルの種類も表示する
-bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+bindkey "[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
 bindkey -e   #Emacsキーバインドにする
