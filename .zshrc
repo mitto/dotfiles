@@ -12,15 +12,16 @@ case ${OSTYPE} in
     export PATH="$PATH:/usr/local/share/python"
     ;;
   *)
-    export PATH="$PATH:$HOME/bin"
-
-    #rbenvの設定
-    if [ -e $HOME/.rbenv ]; then
-      export PATH="$HOME/.rbenv/bin:$PATH"
-      eval "$(rbenv init -)"
-    fi
     ;;
 esac
+export PATH="$PATH:$HOME/bin"
+
+#rbenvの設定
+if [ -e $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 #====================================
