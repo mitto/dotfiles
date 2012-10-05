@@ -9,6 +9,7 @@ export EDITOR=vim
 case ${OSTYPE} in
   darwin*)
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    export PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"
     export PATH="$PATH:/usr/local/share/python"
     ;;
   *)
