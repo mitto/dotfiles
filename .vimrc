@@ -255,7 +255,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "completion plugin
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'taichouchou2/vim-rsense'
