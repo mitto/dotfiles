@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dotfiles=( .zshrc .zshenv .tmux.conf .screenrc .vimrc .vim .hgrc .hgignore_global )
+dotfiles=( .zprofile .zshrc .zshenv .tmux.conf .screenrc .vimrc .vim .hgrc .hgignore_global )
 
 for file in ${dotfiles[@]}
 do
