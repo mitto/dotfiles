@@ -27,4 +27,12 @@ if [ ! -e $HOME/.vim/.swap ]; then
   mkdir $HOME/.vim/.swap
 fi
 
+if [ ! -e $HOME/bin ]; then
+  echo created bin folder : $HOME/bin
+  mkdir $HOME/bin
+fi
 
+if [ ! -e $HOME/opt ]; then
+  echo created opt folder : $HOME/opt
+  mkdir $HOME/opt
+fi
