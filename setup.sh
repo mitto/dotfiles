@@ -45,6 +45,7 @@ if [ ! -e $HOME/opt/rsense-0.3 ]; then
   unzip rsense-0.3.zip
   echo Delete rsense-0.3.zip file
   rm rsense-0.3.zip
+  chmod 744 rsense-0.3/bin/rsense
   cd $HOME
 fi
 
