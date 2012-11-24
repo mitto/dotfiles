@@ -82,6 +82,8 @@ set noerrorbells
 set novisualbell
 "set visualbell t_vb=
 
+set cursorline
+
 "------------------------------------------
 "シンタックス周り
 "------------------------------------------
