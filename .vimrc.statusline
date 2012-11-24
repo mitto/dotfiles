@@ -1,0 +1,17 @@
+"------------------------------------------
+"ステータスラインの設定
+"------------------------------------------
+set laststatus=2
+"set statusline=%F%m%r%h%w\ [%Y][%{&fenc}][%{&ff}]%=[行位置=%p%%][行サイズ=%L][位置=%04l,%04v]
+
+"挿入モードをステータスラインの色で把握できるようにする
+"au InsertEnter * hi StatusLine guifg=DarkBlue guibg=DarkYellow gui=none ctermfg=Blue ctermbg=Yellow cterm=none
+"au InsertLeave * hi StatusLine guifg=DarkBlue guibg=DarkGray gui=none ctermfg=Blue ctermbg=DarkGray cterm=none
+
+"ルーラーの表示
+set ruler
+
+"------------------------------------------
+"vim-powerline
+"------------------------------------------
+let g:Powerline_symbols='fancy'

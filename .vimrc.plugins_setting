@@ -1,0 +1,29 @@
+"------------------------------------------
+"zen-coding周り
+"------------------------------------------
+let g:user_zen_settings = {
+\       'lang' : 'ja',
+\}
+"let g:user_zen_leader_key = '<c><Space>'
+
+"------------------------------------------
+"project.vim
+"------------------------------------------
+"プロジェクトのトグル開閉
+nmap <silent> <Leader>P <Plug>ToggleProject
+"デフォルトのプロジェクトを開く
+nmap <silent> <Leader>p :Project<CR>
+
+"------------------------------------------
+"buftabs.vim
+"------------------------------------------
+"ファイル名だけ表示
+let buftabs_only_basename = 1
+"ステータスラインに表示
+"let buftabs_in_statusline = 1
+
+"------------------------------------------
+"bufexplorer.vim
+"------------------------------------------
+"ヘルプを常に表示
+"let bufExplorerDetailedHelp = 1

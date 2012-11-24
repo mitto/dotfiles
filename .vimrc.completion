@@ -1,0 +1,36 @@
+"------------------------------------------
+"neocomplcache周り
+"------------------------------------------
+"Insert mode補完の設定を行います。’,'区切りでmenuone, menu, preview, longestを指定できます。
+"初期値は”menu,preview”です。
+"menu ポップアップメニューを使った補完を有効にします。
+"menuone 補完候補が一つしかなくてもポップアップメニューを表示します。補完候補の情報を見るのに便利です。
+"longest マッチする一番長いテキストのみ補完します。<C-l>を使うことで、補完する文字を増やすことができます。
+"大文字・小文字の区別がどうなるかは、補完に依存します。
+"preview 補完関数が対応していれば、プレビューウインドウに追加情報を表示します。'completeopt'にmenuかmenuoneがないと動作しません。この処理は一部の補完関数でしか有効にならず、しかも重いです。
+" http://vim-users.jp/2009/05/hack9/
+set completeopt=menuone
+
+let g:neocomplcache_enable_at_startup = 1 "起動時に有効化
+let g:neocomplcache_enable_smart_case = 1 "大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplcache_enable_camel_case_completion = 1 "camel caseは大文字を区切りとしたワイルドカードのように振る舞う
+let g:neocomplcache_enable_underbar_completion = 1 "アンダーバー区切り補完を有効化
+"let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_min_syntax_length = 3 "シンタックスをキャッシュするときの最小文字長
+"let g:neocomplcache_max_list = 20 "補完候補の表示個数を指定
+" スニペットを展開する。スニペットが関係しないところでは行末まで削除
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+
+"------------------------------------------
+"RSense
+"------------------------------------------
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:rsenseUseOmniFunc = 1
+if filereadable(expand('~/opt/rsense-0.3/bin/rsense'))
+  let g:rsenseHome = expand('~/opt/rsense-0.3')
+
+  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+endif
