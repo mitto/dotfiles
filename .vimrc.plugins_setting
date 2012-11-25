@@ -31,4 +31,4 @@ let buftabs_only_basename = 1
 "------------------------------------------
 "nginx.vim
 "------------------------------------------
-au BufRead,BufNewFile /etc/nginx/* set ft=nginx
+au BufRead,BufNewFile /etc/nginx/* setlocal ft=nginx

@@ -84,6 +84,8 @@ set novisualbell
 
 set cursorline
 
+set clipboard+=autoselect
+
 "------------------------------------------
 "シンタックス周り
 "------------------------------------------
