@@ -1,5 +1,5 @@
 "------------------------------------------
-"zen-coding周り
+"zen-coding.vim
 "------------------------------------------
 let g:user_zen_settings = {
 \       'lang' : 'ja',
@@ -27,3 +27,8 @@ let buftabs_only_basename = 1
 "------------------------------------------
 "ヘルプを常に表示
 "let bufExplorerDetailedHelp = 1
+
+"------------------------------------------
+"nginx.vim
+"------------------------------------------
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx
