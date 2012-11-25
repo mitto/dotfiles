@@ -34,6 +34,7 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 
 "Indent plugin
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 "document plugin
 NeoBundle 'thinca/vim-ref'
