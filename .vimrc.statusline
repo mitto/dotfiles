@@ -11,7 +11,3 @@ set laststatus=2
 "ルーラーの表示
 set ruler
 
-"------------------------------------------
-"vim-powerline
-"------------------------------------------
-let g:Powerline_symbols='fancy'
