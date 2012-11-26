@@ -77,3 +77,8 @@ endfunction
 
 nmap <Leader>rj :<C-u>Ref webdict je<Space>
 nmap <Leader>re :<C-u>Ref webdict ej<Space>
+
+"------------------------------------------
+"smartchr
+"------------------------------------------
+inoremap <expr> = smartchr#loop(' = ', '=', ' == ')

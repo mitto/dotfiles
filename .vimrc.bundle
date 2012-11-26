@@ -78,6 +78,9 @@ NeoBundle 'romanvbabenko/rails.vim'
 NeoBundle 'ujihisa/unite-rake'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'rest.vim'
+NeoBundle 'mattn/calendar-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'smartchr'
 
 NeoBundle 'koron/nyancat-vim'
 
