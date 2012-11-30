@@ -132,6 +132,7 @@ setopt correct             # コマンドのミスタイプを訂正するか聞
 setopt auto_resume         # サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
 
 # 補完周りの設定
+# - http://voidy21.hatenablog.jp/entry/20090902/1251918174
 autoload -U compinit; compinit # 補完機能を有効にする
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -149,9 +150,32 @@ setopt list_packed             # aliasを補完候補に含める
 
 bindkey "\e[Z" reverse-menu-complete                # Shift-Tabで補完候補を逆順する
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
-zstyle ':completion:*:default' menu select          # 補完候補を矢印キーなどで選択できるようにする
+zstyle ':completion:*:default' menu select=2        # 補完候補を矢印キーなどで選択できるようにする
+zstyle ':completion:*:default' list-colors ""       # 補完候補に色を付ける（空文字列はデフォルト値を使うという意味）
+zstyle ':completion:*' group-name ''                # 補完方法毎にグループ化する。
+zstyle ':completion:*' format '%B%d%b'              # %B...%b: 「...」を太字にする。 %d: 補完方法のラベル
+zstyle ':completion:*' use-cache yes                # 補完候補をキャッシュする。
+zstyle ':completion:*' verbose yes                  # 詳細な情報を使う。
+setopt complete_in_word                             # カーソル位置で補完する。
+setopt globdots                                     # 明確なドットの指定なしで.から始まるファイルをマッチ
+setopt glob_complete                                # globを展開しないで候補の一覧から補完する。
+setopt extended_glob                                # 拡張グロブで補完(~とか^とか。例えばless *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ)
+setopt hist_expand                                  # 補完時にヒストリを自動的に展開する。
+setopt no_beep                                      # 補完候補がないときなどにビープ音を鳴らさない。
+#setopt numeric_glob_sort                            # 辞書順ではなく数字順に並べる。
+
+## 補完方法の設定。指定した順番に実行する。
+#### _oldlist 前回の補完結果を再利用する。
+#### _complete: 補完する。
+#### _match: globを展開しないで候補の一覧から補完する。
+#### _history: ヒストリのコマンドも補完候補とする。
+#### _ignored: 補完候補にださないと指定したものも補完候補とする。
+#### _approximate: 似ている補完候補も補完候補とする。
+#### _prefix: カーソル以降を無視してカーソル位置までで補完する。
+zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
 
 # sudo するときも補完が効くようにする
+#zstyle ':completion:sudo:*' environ PATH = "$SUDO_PATH:$PATH"
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                                            /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin \
                                            /usr/local/git/bin
@@ -165,6 +189,8 @@ setopt hist_ignore_dups     # 直前と同じコマンドはヒストリに残�
 setopt hist_ignore_all_dups # 重諷するコマンドが記録されるとき古い方を削除する
 setopt hist_reduce_blanks   # 余分なスペースを削除してヒストリに保存する
 setopt hist_save_no_dups    # ヒストリファイルに書き出すとき古いコマンドと同じ物を無視する
+setopt extended_history     # ヒストリファイルにコマンドラインだけではなく実行時刻と実行時間も保存する
+setopt inc_append_history   # すぐにヒストリファイルに追記する。
 
 #------------------------------------------------------------
 # コマンド履歴検索の設定
