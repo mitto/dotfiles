@@ -53,3 +53,11 @@ if [ ! -e $HOME/.rsense ]; then
   echo Configure rsense
   ruby $HOME/opt/rsense-0.3/etc/config.rb > $HOME/.rsense
 fi
+
+for file in `ls $HOME/dotfiles/.tmux.d`
+do
+  if [ ! -L $HOME/bin/$file ]; then
+    echo "new symbolic link: $file"
+    ln -s $HOME/dotfiles/.tmux.d/$file $HOME/bin/$file
+  fi
+done
