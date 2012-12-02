@@ -80,7 +80,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'rest.vim'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'smartchr'
+"NeoBundle 'smartchr'
 NeoBundle 'taglist.vim'
 NeoBundle 'Source-Explorer-srcexpl.vim'
 
