@@ -106,7 +106,6 @@ case ${OSTYPE} in
         alias ls='ls -G'
         alias idm='wine ~/Dropbox/idm/IDM.exe'
         alias cisco='screen /dev/tty.usbserial 9600'
-        alias tmux='tmuxx'
         ;;
     *)
        alias ls='ls --color=auto'

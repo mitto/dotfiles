@@ -81,6 +81,8 @@ NeoBundle 'rest.vim'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'smartchr'
+NeoBundle 'taglist.vim'
+NeoBundle 'Source-Explorer-srcexpl.vim'
 
 NeoBundle 'koron/nyancat-vim'
 
