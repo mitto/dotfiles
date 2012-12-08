@@ -6,11 +6,6 @@ if [ "$DEBUG" = "yes" ]; then
     set -x
 fi
 
-## vm_stat コマンドのチェック
-if ! type vm_stat > /dev/null 2>&1; then
-    exit 1
-fi
-
 #
 # メモリ使用率(%)を求める
 #   精度は小数点第1位までとする
@@ -73,7 +68,14 @@ debug() {
 
 RET=0
 ## メイン処理 -----
-calculate_used_mem
+case ${OSTYPE} in
+  darwin*)
+    calculate_used_mem
+    ;;
+  *)
+    echo `free | grep Mem | awk '{ printf ("%.1f", ($3/$2)*100)}'`
+    ;;
+esac
 RET=$?
 
 ## デバッグ -----
