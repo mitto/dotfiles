@@ -73,7 +73,7 @@ case ${OSTYPE} in
     calculate_used_mem
     ;;
   *)
-    echo `free | grep Mem | awk '{ printf ("%.1f", ($3/$2)*100)}'`
+    echo `free | grep Mem | awk '{ printf ("%.1f", (($3-$6-$7)/$2)*100)}'`
     ;;
 esac
 RET=$?
