@@ -153,7 +153,7 @@ zstyle ':completion:*:default' menu select=2        # 補完候補を矢印キ�
 zstyle ':completion:*:default' list-colors ""       # 補完候補に色を付ける（空文字列はデフォルト値を使うという意味）
 zstyle ':completion:*' group-name ''                # 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%d%b'              # %B...%b: 「...」を太字にする。 %d: 補完方法のラベル
-zstyle ':completion:*' use-cache yes                # 補完候補をキャッシュする。
+#zstyle ':completion:*' use-cache yes                # 補完候補をキャッシュする。
 zstyle ':completion:*' verbose yes                  # 詳細な情報を使う。
 setopt complete_in_word                             # カーソル位置で補完する。
 setopt globdots                                     # 明確なドットの指定なしで.から始まるファイルをマッチ
@@ -171,7 +171,7 @@ setopt no_beep                                      # 補完候補がないと�
 #### _ignored: 補完候補にださないと指定したものも補完候補とする。
 #### _approximate: 似ている補完候補も補完候補とする。
 #### _prefix: カーソル以降を無視してカーソル位置までで補完する。
-zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' completer _match _complete _oldlist _history _approximate _prefix
 
 # sudo するときも補完が効くようにする
 #zstyle ':completion:sudo:*' environ PATH = "$SUDO_PATH:$PATH"
