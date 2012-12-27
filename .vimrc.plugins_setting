@@ -82,3 +82,9 @@ nmap <Leader>re :<C-u>Ref webdict ej<Space>
 "smartchr
 "------------------------------------------
 "inoremap <expr> = smartchr#loop(' = ', '=', ' == ')
+
+"------------------------------------------
+" taglist
+"------------------------------------------
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let g:SrcExpl_updateTagsCmd = "/usr/local/bin/ctags --sort=foldcase -R ."
