@@ -51,7 +51,7 @@ export SAVEHIST=100000
 case ${OSTYPE} in
   darwin*)
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    export PATH="/usr/local/Cellar/ruby/1.9.3-p327/bin:$PATH"
+    export PATH="/usr/local/Cellar/ruby/1.9.3-p362/bin:$PATH"
     export PATH="$PATH:/usr/local/share/python"
     ;;
   *)
