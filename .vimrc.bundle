@@ -84,7 +84,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'SrcExpl'
 NeoBundle 'Trinity'
-NeoBundle 'NERD_tree.vim'
+NeoBundle 'scrooloose/nerdtree.git'
 
 NeoBundle 'koron/nyancat-vim'
 
