@@ -64,6 +64,7 @@ export PATH="$PATH:$HOME/bin"
 # rbenvのパスを追加
 if [ -e $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/versions/1.9.3-p362/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
