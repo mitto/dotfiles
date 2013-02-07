@@ -253,3 +253,8 @@ function _update_vcs_info_msg() {
 
 # コマンドの実行前に上の関数を呼び出すためのフックを追加する
 add-zsh-hook precmd _update_vcs_info_msg
+
+# 個別設定用
+if [ -e $HOME/.zshrc.local ]; then
+  source $HOME/.zshrc.local
+fi

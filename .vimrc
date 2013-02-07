@@ -24,3 +24,8 @@ source ~/dotfiles/.vimrc.statusline
 
 "プラグイン周りの設定
 source ~/dotfiles/.vimrc.plugins_setting
+
+"ローカル設定の読み込み
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
