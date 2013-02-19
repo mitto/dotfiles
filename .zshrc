@@ -89,10 +89,10 @@ case "${TERM}" in
 kterm*|xterm*)
     preexec() {
         mycmd=(${(s: :)${1}})
-        echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):$mycmd[1]\e\\"
+        echo -ne "\ek$mycmd[1]\e\\"
     }
     precmd() {
-        echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):idle\e\\"
+        echo -ne "\ekidle\e\\"
     }
     ;;
 esac
