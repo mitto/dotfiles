@@ -64,12 +64,10 @@ export PATH="$PATH:$HOME/bin"
 # rbenvのパスを追加
 if [ -e $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
-  export PATH="$HOME/.rbenv/versions/1.9.3-p362/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
 # pythonzのパスを追加
 if [ -e $HOME/.pythonz ]; then
   [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-  export PATH=$HOME/.pythonz/pythons/CPython-2.7.3/bin:$PATH
 fi
