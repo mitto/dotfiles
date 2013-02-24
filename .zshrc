@@ -171,7 +171,7 @@ setopt no_beep                                      # 補完候補がないと�
 #### _ignored: 補完候補にださないと指定したものも補完候補とする。
 #### _approximate: 似ている補完候補も補完候補とする。
 #### _prefix: カーソル以降を無視してカーソル位置までで補完する。
-zstyle ':completion:*' completer _match _complete _oldlist _history _approximate _prefix
+zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
 
 # sudo するときも補完が効くようにする
 #zstyle ':completion:sudo:*' environ PATH = "$SUDO_PATH:$PATH"
