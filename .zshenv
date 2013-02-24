@@ -36,7 +36,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 #------------------------------------
 export EDITOR=vim
 # rubyの補完で使うrsenseのPATHを指定
-export RSENSE_HOME=$HOME/opt/rsense-0.3
+[ -e $HOME/opt/rsense ] && export RSENSE_HOME=$HOME/opt/rsense
+[ -e /usr/libexec/java_home ] && export JAVA_HOME="$(/usr/libexec/java_home)"
 
 #------------------------------------
 # ヒストリの設定

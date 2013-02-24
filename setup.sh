@@ -37,21 +37,24 @@ if [ ! -e $HOME/opt ]; then
   mkdir $HOME/opt
 fi
 
-if [ ! -e $HOME/opt/rsense-0.3 ]; then
-  echo Download rsense : http://cx4a.org/pub/rsense/rsense-0.3.zip
-  curl http://cx4a.org/pub/rsense/rsense-0.3.zip > $HOME/opt/rsense-0.3.zip
-  cd $HOME/opt
-  echo Unzip rsense-0.3.zip file
-  unzip rsense-0.3.zip
-  echo Delete rsense-0.3.zip file
-  rm rsense-0.3.zip
-  chmod 744 rsense-0.3/bin/rsense
+if [ ! -L $HOME/opt/rsense ]; then
+  if [ ! -e $HOME/opt/rsense-0.3 ]; then
+    echo Download rsense : http://cx4a.org/pub/rsense/rsense-0.3.zip
+    curl http://cx4a.org/pub/rsense/rsense-0.3.zip > $HOME/opt/rsense-0.3.zip
+    cd $HOME/opt
+    echo Unzip rsense-0.3.zip file
+    unzip rsense-0.3.zip
+    echo Delete rsense-0.3.zip file
+    rm rsense-0.3.zip
+    chmod 744 rsense-0.3/bin/rsense
+  fi
+  ln -s $HOME/opt/rsense-0.3 $HOME/opt/rsense
   cd $HOME
 fi
 
 if [ ! -e $HOME/.rsense ]; then
   echo Configure rsense
-  ruby $HOME/opt/rsense-0.3/etc/config.rb > $HOME/.rsense
+  ruby $HOME/opt/rsense/etc/config.rb > $HOME/.rsense
 fi
 
 for file in `ls $HOME/dotfiles/.tmux.d`
