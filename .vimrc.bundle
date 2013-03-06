@@ -96,6 +96,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'SrcExpl'
 NeoBundle 'Trinity'
+NeoBundle 'YankRing.vim'
 
 NeoBundle 'koron/nyancat-vim'
 
