@@ -10,6 +10,19 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
+"text-object
+NeoBundle 'kana/vim-textobj-function'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-lastpat'
+NeoBundle 'kana/vim-textobj-jabraces'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-fold'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-diff'
+NeoBundle 'kana/vim-textobj-datetime'
+
 "completion plugin
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
@@ -24,7 +37,6 @@ NeoBundle 'nginx.vim'
 NeoBundle 'glidenote/keepalived-syntax.vim'
 NeoBundle 'petdance/vim-perl'
 NeoBundle 'hail2u/vim-css3-syntax.git'
-NeoBundle 'taichouchou2/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'JavaScript-syntax'
