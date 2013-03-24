@@ -97,6 +97,7 @@ NeoBundle 'taglist.vim'
 NeoBundle 'SrcExpl'
 NeoBundle 'Trinity'
 NeoBundle 'YankRing.vim'
+NeoBundle 'kakkyz81/evervim'
 
 NeoBundle 'koron/nyancat-vim'
 
