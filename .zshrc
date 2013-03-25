@@ -85,17 +85,17 @@ esac
 # preexec() コマンドを実行直前に呼び出される
 # precmd()  プロンプトを表示直前に呼び出される
 #====================================
-case "${TERM}" in
-kterm*|xterm*)
-    preexec() {
-        mycmd=(${(s: :)${1}})
-        echo -ne "\ek$mycmd[1]\e\\"
-    }
-    precmd() {
-        echo -ne "\ekidle\e\\"
-    }
-    ;;
-esac
+#case "${TERM}" in
+#kterm*|xterm*)
+#    preexec() {
+#        mycmd=(${(s: :)${1}})
+#        echo -ne "\ek$mycmd[1]\e\\"
+#    }
+#    precmd() {
+#        echo -ne "\ekidle\e\\"
+#    }
+#    ;;
+#esac
 
 #====================================
 # コマンドエイリアスの設定
