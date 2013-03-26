@@ -10,6 +10,7 @@
 "preview 補完関数が対応していれば、プレビューウインドウに追加情報を表示します。'completeopt'にmenuかmenuoneがないと動作しません。この処理は一部の補完関数でしか有効にならず、しかも重いです。
 " http://vim-users.jp/2009/05/hack9/
 set completeopt=menuone
+set infercase
 
 let g:neocomplcache_enable_at_startup = 1 "起動時に有効化
 let g:neocomplcache_enable_smart_case = 1 "大文字が入力されるまで大文字小文字の区別を無視する
@@ -19,18 +20,18 @@ let g:neocomplcache_enable_underbar_completion = 1 "アンダーバー区切り�
 let g:neocomplcache_min_syntax_length = 3 "シンタックスをキャッシュするときの最小文字長
 "let g:neocomplcache_max_list = 20 "補完候補の表示個数を指定
 " スニペットを展開する。スニペットが関係しないところでは行末まで削除
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_skip_auto_completion_time = '0.3'
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 
-"------------------------------------------
-"RSense
-"------------------------------------------
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:rsenseUseOmniFunc = 1
-if filereadable(expand('~/opt/rsense-0.3/bin/rsense'))
-  let g:rsenseHome = expand('~/opt/rsense-0.3')
-
-  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-endif
+"rsense
+let g:neocomplcache#sources#rsense#home_directory = expand('~/.vim/bundle/rsense-0.3')
+ 
+" keymap
+imap <expr><C-g>     neocomplcache#undo_completion()
+imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
+imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
+" imap <silent><expr><TAB>   pumvisible() ? "\<C-N>" : "\<TAB>"
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"

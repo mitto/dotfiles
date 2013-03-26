@@ -10,7 +10,28 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-"text-object
+"plugin management{{{
+
+"plugin manager{{{
+NeoBundle 'Shougo/neobundle.vim'
+"}}}
+
+"color scheme{{{
+NeoBundle 'wombat256.vim'
+NeoBundleLazy 'tomasr/molokai'
+NeoBundleLazy 'altercation/vim-colors-solarized'
+NeoBundleLazy 'croaker/mustang-vim'
+NeoBundleLazy 'jeffreyiacono/vim-colors-wombat'
+NeoBundleLazy 'nanotech/jellybeans.vim'
+NeoBundleLazy 'vim-scripts/Lucius'
+NeoBundleLazy 'vim-scripts/Zenburn'
+NeoBundleLazy 'mrkn/mrkn256.vim'
+NeoBundleLazy 'jpo/vim-railscasts-theme'
+NeoBundleLazy 'therubymug/vim-pyte'
+NeoBundleLazy 'tomasr/molokai'
+"}}}
+
+"text-object plugin{{{
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-syntax'
@@ -22,84 +43,156 @@ NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-diff'
 NeoBundle 'kana/vim-textobj-datetime'
+"}}}
 
-"completion plugin
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+"completion plugin{{{
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
+NeoBundle 'Shougo/neocomplcache', {
+  \ 'autoload' : {
+  \   'insert' : 1,
+  \ }}
+NeoBundle 'Shougo/neosnippet', {
+  \ 'autoload' : {
+  \   'insert' : 1,
+  \ }}
+NeoBundle 'Shougo/neocomplcache-rsense', {
+  \ 'depends': 'Shougo/neocomplcache',
+  \ 'autoload': { 'filetypes': 'ruby' }}
+NeoBundleLazy 'taichouchou2/rsense-0.3', {
+  \ 'build' : {
+  \    'mac': 'ruby etc/config.rb > ~/.rsense',
+  \    'unix': 'ruby etc/config.rb > ~/.rsense',
+  \ } }
+NeoBundleLazy 'taichouchou2/alpaca_complete', {
+  \ 'depends' :  ['tpope/vim-rails', 'Shougo/neocomplcache'],
+  \ 'build' : {
+  \    'mac':  'gem install alpaca_complete',
+  \    'unix': 'gem install alpaca_complete',
+  \   }
+  \ }
+
+"}}}
+
+"unite{{{
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'taichouchou2/vim-rsense'
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+  \ 'depends' : 'Shougo/unite.vim' }
 
-"syntax plugin
-NeoBundle 'html5.vim'
-NeoBundle 'nginx.vim'
-NeoBundle 'glidenote/keepalived-syntax.vim'
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hail2u/vim-css3-syntax.git'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'Syntastic'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'cakebaker/scss-syntax.vim'
+"ruby/rails"{{{
+NeoBundleLazy 'ujihisa/unite-rake', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundleLazy 'basyura/unite-rails', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundleLazy 'taichouchou2/unite-rails_best_practices', {
+  \ 'depends' : 'Shougo/unite.vim',
+  \ 'build' : {
+  \    'mac': 'gem install rails_best_practices',
+  \    'unix': 'gem install rails_best_practices',
+  \   }
+  \ }
+NeoBundleLazy 'taichouchou2/unite-reek', {
+  \ 'build' : {
+  \    'mac': 'gem install reek',
+  \    'unix': 'gem install reek',
+  \ },
+  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
+  \ 'depends' : 'Shougo/unite.vim' }
+"}}}
+"}}}
 
-"Indent plugin
-NeoBundle 'pangloss/vim-javascript'
+"syntax plugin{{{
+
+"develop {{{
+NeoBundle 'html5.vim', {
+  \ 'autoload' : { 'filetypes' : 'html' }}
+NeoBundle 'hail2u/vim-css3-syntax.git', {
+  \ 'autoload' : { 'filetypes' : 'css' }}
+" NeoBundle 'groenewege/vim-less'
+" NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'JavaScript-syntax', {
+  \ 'autoload' : { 'filetypes' : 'javascript' }}
+" NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-haml', {
+  \ 'autoload' : { 'filetypes' : 'haml' }}
+NeoBundle 'petdance/vim-perl', {
+  \ 'autoload' : { 'filetypes' : 'perl' }}
+NeoBundle 'rest.vim', {
+  \ 'autoload' : { 'filetypes' : 'rst' }}
+"}}}
+
+"server conf{{{
+NeoBundle 'nginx.vim', {
+  \ 'autoload' : { 'filetypes' : 'nginx' }}
+NeoBundle 'glidenote/keepalived-syntax.vim', {
+  \ 'autoload' : { 'filetypes' : 'keepalived' }}
+"}}}
+NeoBundleLazy 'Syntastic'
+"}}}
+
+"Indent plugin"{{{
+NeoBundle 'pangloss/vim-javascript', {
+  \ 'autoload' : { 'filetypes' : ['javascript', 'jquery'] }}
+
 NeoBundle 'nathanaelkane/vim-indent-guides'
+"}}}
 
-"document plugin
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'hotchpotch/perldoc-vim'
-NeoBundle 'vim-jp/vimdoc-ja'
+"document plugin"{{{
+NeoBundleLazy 'vim-jp/vimdoc-ja'
 
-"develop plugin
+NeoBundleLazy 'thinca/vim-ref'
+NeoBundleLazy 'hotchpotch/perldoc-vim', {
+  \ 'autoload' : { 'filetypes' : 'perl' }}
+
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'taka84u9/vim-ref-ri', {
+  \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
+  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'skwp/vim-rspec', {
+  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+"}}}
+
+"develop plugin"{{{
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'ZenCoding.vim'
-NeoBundle 'project.tar.gz'
-
-"buffer plugin
-NeoBundle 'bufexplorer.zip'
-
-"color scheme
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'wombat256.vim'
-"NeoBundle 'tomasr/molokai'
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'croaker/mustang-vim'
-"NeoBundle 'jeffreyiacono/vim-colors-wombat'
-"NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'vim-scripts/Lucius'
-"NeoBundle 'vim-scripts/Zenburn'
-"NeoBundle 'mrkn/mrkn256.vim'
-"NeoBundle 'jpo/vim-railscasts-theme'
-"NeoBundle 'therubymug/vim-pyte'
-"NeoBundle 'tomasr/molokai'
-
-"other plugin
-NeoBundle 'sudo.vim'
-NeoBundle 'sjl/gundo.vim.git'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'opsplorer'
-"NeoBundle 'css_color.vim'
-NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'ZenCoding.vim', {
+  \ 'autoload' : { 'filetypes' : 'html' }}
+NeoBundleLazy 'ruby-matchit', {
+  \ 'autoload' : { 'filetypes' : ['ruby', 'eruby', 'haml'] } }
 NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'ruby-matchit'
-NeoBundle 'taichouchou2/vim-rails'
-NeoBundle 'romanvbabenko/rails.vim'
-NeoBundle 'ujihisa/unite-rake'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'rest.vim'
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'mattn/webapi-vim'
-"NeoBundle 'smartchr'
-NeoBundle 'taglist.vim'
-NeoBundle 'SrcExpl'
-NeoBundle 'Trinity'
+"}}}
+
+"other plugin"{{{
+NeoBundle 'Lokaltog/vim-powerline'
+
+"utility plugin"{{{
 NeoBundle 'YankRing.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kakkyz81/evervim'
+NeoBundle 'mattn/calendar-vim'
+NeoBundleLazy 'project.tar.gz'
+NeoBundle 'sjl/gundo.vim.git'
+NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'sudo.vim'
+"}}}
 
-NeoBundle 'koron/nyancat-vim'
+"source explore
+NeoBundle 'taglist.vim'
+NeoBundle 'SrcExpl'
+NeoBundle 'Trinity'
+
+"library plugin
+NeoBundle 'mattn/webapi-vim'
+
+"fun plugin
+NeoBundleLazy 'koron/nyancat-vim'
+"}}}
+"}}}
 
 filetype plugin indent on 
+
+" vim:set foldmethod=marker:
