@@ -82,6 +82,10 @@ NeoBundleLazy 'taichouchou2/alpaca_complete', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
   \ 'depends' : 'Shougo/unite.vim' }
+NeoBundle 'Shougo/unite-ssh', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundle 'osyo-manga/unite-filetype', {
+  \ 'depends' : 'Shougo/unite.vim' }
 
 "ruby/rails"{{{
 NeoBundleLazy 'ujihisa/unite-rake', {
@@ -170,6 +174,7 @@ NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'Lokaltog/vim-powerline'
 
 "utility plugin"{{{
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'YankRing.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kakkyz81/evervim'
