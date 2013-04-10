@@ -31,6 +31,13 @@ useother = resolve --tool internal:other
 nudge = push --rev .
 #push = ! echo -e "\033[31m(use 'hg nudge' to push changesets)\033[m"
 
+qi = qimport
+qr = qrefresh
+qd = qdiff
+qn = qnew
+qls = qseries --summary
+qstatus = status --rev -2:.
+
 [pager]
 attend = annotate, cat, diff, export, glog, log, qdiff, help
 
