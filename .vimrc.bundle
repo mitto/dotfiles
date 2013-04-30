@@ -171,7 +171,7 @@ NeoBundle 'tpope/vim-endwise.git'
 "}}}
 
 "other plugin"{{{
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 "utility plugin"{{{
 NeoBundle 'Shougo/vimfiler'
