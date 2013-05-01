@@ -171,7 +171,12 @@ NeoBundle 'tpope/vim-endwise.git'
 "}}}
 
 "other plugin"{{{
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline', {
+  \ 'rtp' : 'powerline/bindings/vim',
+  \ 'build' : {
+  \   'mac': 'pip install --user git+git://github.com/Lokaltog/powerline',
+  \   'unix': 'pip install --user git+git://github.com/Lokaltog/powerline',
+  \ }}
 
 "utility plugin"{{{
 NeoBundle 'Shougo/vimfiler'
