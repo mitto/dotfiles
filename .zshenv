@@ -4,6 +4,8 @@
 
 #文字コードの設定
 export LANG=ja_JP.UTF-8
+export LANGUAGE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 
 #------------------------------------
 # lsの色設定
@@ -46,20 +48,26 @@ export SAVEHIST=100000
 #------------------------------------
 # OSごとに必要なパスを追加
 #------------------------------------
-case ${OSTYPE} in
-  darwin*)
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    export PATH="$PATH:/usr/local/share/python"
-    ;;
-  *)
-    ;;
-esac
 
-# 各OSで共通なパスを追加
-export PATH="$PATH:$HOME/bin"
+## 重複したパスを登録しない。
+typeset -U path
+## (N-/): 存在しないディレクトリは登録しない。
+##    パス(...): ...という条件にマッチするパスのみ残す。
+##            N: NULL_GLOBオプションを設定。
+##               globがマッチしなかったり存在しないパスを無視する。
+##            -: シンボリックリンク先のパスを評価。
+##            /: ディレクトリのみ残す。
+path=(/bin(N-/)
+  /sbin(N-/)
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /usr/local/share/python(N-/)
+  /usr/bin(N-/)
+  /usr/sbin(N-/)
+  $HOME/.rbenv/bin(N-/)
+  $HOME/bin(N-/)
+)
 
-# rbenvのパスを追加
 if [ -e $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
