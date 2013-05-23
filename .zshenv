@@ -49,7 +49,6 @@ export SAVEHIST=100000
 case ${OSTYPE} in
   darwin*)
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    export PATH="/usr/local/Cellar/ruby/1.9.3-p362/bin:$PATH"
     export PATH="$PATH:/usr/local/share/python"
     ;;
   *)
@@ -63,9 +62,4 @@ export PATH="$PATH:$HOME/bin"
 if [ -e $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
-fi
-
-# pythonzのパスを追加
-if [ -e $HOME/.pythonz ]; then
-  [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 fi
