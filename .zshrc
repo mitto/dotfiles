@@ -121,6 +121,7 @@ alias ll='l'
 #====================================
 # zsh オプション
 #====================================
+source ~/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
 
 # キーバインドの設定
 bindkey -e                 #Emacsキーバインドにする
