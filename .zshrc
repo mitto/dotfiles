@@ -255,8 +255,10 @@ function _update_vcs_info_msg() {
 # コマンドの実行前に上の関数を呼び出すためのフックを追加する
 add-zsh-hook precmd _update_vcs_info_msg
 
+# antigen.zsh setting
 source ~/.zsh.d/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 
 ## auto-fu.zsh
 # precompiled source
