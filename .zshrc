@@ -255,6 +255,65 @@ function _update_vcs_info_msg() {
 # コマンドの実行前に上の関数を呼び出すためのフックを追加する
 add-zsh-hook precmd _update_vcs_info_msg
 
+## auto-fu.zsh
+# precompiled source
+function () { # precompile
+    local A
+    A=~/.zsh.d/auto-fu.zsh/auto-fu.zsh
+    [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
+    zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
+}
+
+source ~/.zsh.d/auto-fu.zsh/auto-fu && auto-fu-install
+zstyle ':auto-fu:highlight' input bold
+zstyle ':auto-fu:highlight' completion fg=black,bold
+zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
+zstyle ':auto-fu:var' postdisplay $'\n-auto-fu-'
+zstyle ':auto-fu:var' track-keymap-skip opp
+zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+zle -N zle-keymap-select auto-fu-zle-keymap-select
+
+
+function () {
+    local code
+    code=${functions[auto-fu-init]/'\n-azfu-'/''}
+    eval "function auto-fu-init () { $code }"
+    code=${functions[auto-fu]/fg=black,bold/fg=white}
+    eval "function auto-fu () { $code }"
+}
+
+function afu+cancel () {
+    afu-clearing-maybe
+    ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur" }
+}
+function bindkey-advice-before () {
+    local key="$1"
+    local advice="$2"
+    local widget="$3"
+    [[ -z "$widget" ]] && {
+        local -a bind
+        bind=(`bindkey -M main "$key"`)
+        widget=$bind[2]
+    }
+    local fun="$advice"
+    if [[ "$widget" != "undefined-key" ]]; then
+        local code=${"$(<=(cat <<"EOT"
+            function $advice-$widget () {
+                zle $advice
+                zle $widget
+            }
+            fun="$advice-$widget"
+EOT
+        ))"}
+        eval "${${${code//\$widget/$widget}//\$key/$key}//\$advice/$advice}"
+    fi
+    zle -N "$fun"
+    bindkey -M afu "$key" "$fun"
+}
+bindkey-advice-before "^G" afu+cancel
+bindkey-advice-before "^[" afu+cancel
+bindkey-advice-before "^J" afu+cancel afu+accept-line
+
 # 個別設定用
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
