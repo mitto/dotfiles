@@ -62,19 +62,23 @@ NeoBundle 'Shougo/neosnippet', {
   \ }}
 NeoBundle 'Shougo/neocomplcache-rsense', {
   \ 'depends': 'Shougo/neocomplcache',
-  \ 'autoload': { 'filetypes': 'ruby' }}
+  \ 'autoload': {
+  \     'filetypes': ['ruby', 'eruby', 'haml']
+  \ }}
 NeoBundleLazy 'taichouchou2/rsense-0.3', {
   \ 'build' : {
   \    'mac': 'ruby etc/config.rb > ~/.rsense',
   \    'unix': 'ruby etc/config.rb > ~/.rsense',
-  \ } }
+  \ }}
 NeoBundleLazy 'taichouchou2/alpaca_complete', {
   \ 'depends' :  ['tpope/vim-rails', 'Shougo/neocomplcache'],
   \ 'build' : {
   \    'mac':  'gem install alpaca_complete',
   \    'unix': 'gem install alpaca_complete',
-  \   }
-  \ }
+  \ },
+  \ 'autoload': {
+  \     'filetypes': ['ruby', 'eruby', 'haml']
+  \ }}
 
 "}}}
 
@@ -89,11 +93,20 @@ NeoBundle 'osyo-manga/unite-filetype', {
 
 "ruby/rails"{{{
 NeoBundleLazy 'ujihisa/unite-rake', {
-  \ 'depends' : 'Shougo/unite.vim' }
+  \ 'depends' : 'Shougo/unite.vim',
+  \ 'autoload': {
+  \    'filetypes': ['ruby', 'eruby', 'haml']
+  \ }}
 NeoBundleLazy 'basyura/unite-rails', {
-  \ 'depends' : 'Shougo/unite.vim' }
+  \ 'depends' : 'Shougo/unite.vim',
+  \ 'autoload': {
+  \    'filetypes': ['ruby', 'eruby', 'haml']
+  \ }}
 NeoBundleLazy 'taichouchou2/unite-rails_best_practices', {
   \ 'depends' : 'Shougo/unite.vim',
+  \ 'autoload': {
+  \    'filetypes': ['ruby', 'eruby', 'haml']
+  \ },
   \ 'build' : {
   \    'mac': 'gem install rails_best_practices',
   \    'unix': 'gem install rails_best_practices',
@@ -104,7 +117,9 @@ NeoBundleLazy 'taichouchou2/unite-reek', {
   \    'mac': 'gem install reek',
   \    'unix': 'gem install reek',
   \ },
-  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
+  \ 'autoload': {
+  \     'filetypes': ['ruby', 'eruby', 'haml']
+  \ },
   \ 'depends' : 'Shougo/unite.vim' }
 "}}}
 "}}}
