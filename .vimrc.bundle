@@ -192,6 +192,7 @@ NeoBundle 'Lokaltog/powerline', {
   \   'mac': 'pip install --user git+git://github.com/Lokaltog/powerline',
   \   'unix': 'pip install --user git+git://github.com/Lokaltog/powerline',
   \ }}
+NeoBundle 'taichouchou2/alpaca_powertabline'
 
 "utility plugin"{{{
 NeoBundle 'Shougo/vimfiler'
