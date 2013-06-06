@@ -101,3 +101,8 @@ nmap <F8> :TrinityToggleAll<CR>
 " NERD_Tree
 "------------------------------------------
 let NERDTreeShowHidden=1
+
+"------------------------------------------
+" vimfiler
+"------------------------------------------
+let g:vimfiler_as_default_explorer = 1
