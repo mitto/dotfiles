@@ -90,6 +90,12 @@ NeoBundle 'Shougo/unite-ssh', {
   \ 'depends' : 'Shougo/unite.vim' }
 NeoBundle 'osyo-manga/unite-filetype', {
   \ 'depends' : 'Shougo/unite.vim' }
+NeoBundle 'tsukkee/unite-help', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundle 'tsukkee/unite-tag', {
+  \ 'depends' : 'Shougo/unite.vim' }
+NeoBundle 'sgur/unite-qf', {
+  \ 'depends' : 'Shougo/unite.vim' }
 
 "ruby/rails"{{{
 NeoBundleLazy 'ujihisa/unite-rake', {
