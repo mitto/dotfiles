@@ -1,0 +1,19 @@
+[user]
+	name = mitto nagisa
+	email = mitto@mittostar.info
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[push]
+	default = simple
+[alias]
+	st = status
+	co = checkout
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	oneline = log --oneline --graph
+	glog = log --graph --pretty
+[help]
+	autocorrect = 1
+[color]
+	ui = true
