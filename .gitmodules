@@ -1,0 +1,12 @@
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git
+[submodule ".zsh.d/zsh-completions"]
+	path = .zsh.d/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule ".zsh.d/auto-fu.zsh"]
+	path = .zsh.d/auto-fu.zsh
+	url = https://github.com/hchbaw/auto-fu.zsh.git
+[submodule ".zsh.d/antigen"]
+	path = .zsh.d/antigen
+	url = https://github.com/zsh-users/antigen.git
