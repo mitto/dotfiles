@@ -10,3 +10,6 @@
 [submodule ".zsh.d/antigen"]
 	path = .zsh.d/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = git://github.com/Lokaltog/powerline.git
