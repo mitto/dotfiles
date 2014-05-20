@@ -19,4 +19,4 @@ esac
 
 alias ll="ls -la"
 
-alias gitw="GIT_SSH=$HOME/.ssh/git-wrap.sh git"
+alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
