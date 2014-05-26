@@ -15,7 +15,9 @@ if [ -f $BASH_COMPLETION_SCRIPT ]; then
   source $BASH_COMPLETION_SCRIPT
 fi
 
-which aws && complete -C aws_completer aws
+if [ -f /usr/bin/aws ]; then
+  complete -C aws_completer aws
+fi
 
 case `uname` in
   Darwin*)
