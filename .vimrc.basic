@@ -47,10 +47,10 @@ set writebackup
 set backupcopy=yes
 
 "バックアップディレクトリ
-set backupdir=~/.vim/.backup
+set backupdir=~/dotfiles/.vim/backup
 
 "スワップファイルのディレクトリ
-set directory=~/.vim/.swap
+set directory=~/dotfiles/.vim/swap
 
 "------------------------------------------
 "表示関連
