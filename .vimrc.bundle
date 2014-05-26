@@ -39,40 +39,21 @@ NeoBundle 'Shougo/neosnippet', {
 
 NeoBundle 'Shougo/unite.vim'
 
-NeoBundle 'html5.vim', {
-  \ 'autoload' : { 'filetypes' : 'html' }}
-NeoBundle 'hail2u/vim-css3-syntax.git', {
-  \ 'autoload' : { 'filetypes' : 'css' }}
-NeoBundle 'JavaScript-syntax', {
-  \ 'autoload' : { 'filetypes' : 'javascript' }}
-NeoBundle 'tpope/vim-haml', {
-  \ 'autoload' : { 'filetypes' : 'haml' }}
-NeoBundle 'rest.vim', {
-  \ 'autoload' : { 'filetypes' : 'rst' }}
-
 NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
-
-NeoBundle 'pangloss/vim-javascript', {
-  \ 'autoload' : { 'filetypes' : ['javascript', 'jquery'] }}
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'vim-jp/vimdoc-ja'
 
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'ZenCoding.vim', {
-  \ 'autoload' : { 'filetypes' : 'html' }}
-NeoBundle 'tpope/vim-endwise.git'
+NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'Lokaltog/powerline', {
-  \ 'rtp' : 'powerline/bindings/vim',
-  \ 'build' : {
-  \   'mac': 'pip install --user git+git://github.com/Lokaltog/powerline',
-  \   'unix': 'pip install --user git+git://github.com/Lokaltog/powerline',
-  \ }}
+  \ 'rtp' : 'powerline/bindings/vim'
+  \}
 NeoBundle 'taichouchou2/alpaca_powertabline'
 
 NeoBundle 'Shougo/vimfiler'
