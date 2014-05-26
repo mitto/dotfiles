@@ -43,15 +43,10 @@ NeoBundle 'html5.vim', {
   \ 'autoload' : { 'filetypes' : 'html' }}
 NeoBundle 'hail2u/vim-css3-syntax.git', {
   \ 'autoload' : { 'filetypes' : 'css' }}
-" NeoBundle 'groenewege/vim-less'
-" NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'JavaScript-syntax', {
   \ 'autoload' : { 'filetypes' : 'javascript' }}
-" NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-haml', {
   \ 'autoload' : { 'filetypes' : 'haml' }}
-NeoBundle 'petdance/vim-perl', {
-  \ 'autoload' : { 'filetypes' : 'perl' }}
 NeoBundle 'rest.vim', {
   \ 'autoload' : { 'filetypes' : 'rst' }}
 
@@ -59,32 +54,17 @@ NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
-NeoBundleLazy 'Syntastic'
 
 NeoBundle 'pangloss/vim-javascript', {
   \ 'autoload' : { 'filetypes' : ['javascript', 'jquery'] }}
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-NeoBundleLazy 'vim-jp/vimdoc-ja'
-
-NeoBundleLazy 'thinca/vim-ref'
-NeoBundleLazy 'hotchpotch/perldoc-vim', {
-  \ 'autoload' : { 'filetypes' : 'perl' }}
-
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-  \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'taka84u9/vim-ref-ri', {
-  \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'skwp/vim-rspec', {
-  \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundle 'vim-jp/vimdoc-ja'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'ZenCoding.vim', {
   \ 'autoload' : { 'filetypes' : 'html' }}
-NeoBundleLazy 'ruby-matchit', {
-  \ 'autoload' : { 'filetypes' : ['ruby', 'eruby', 'haml'] } }
 NeoBundle 'tpope/vim-endwise.git'
 
 NeoBundle 'Lokaltog/powerline', {
@@ -96,22 +76,6 @@ NeoBundle 'Lokaltog/powerline', {
 NeoBundle 'taichouchou2/alpaca_powertabline'
 
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'YankRing.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'kakkyz81/evervim'
-NeoBundle 'mattn/calendar-vim'
-NeoBundleLazy 'project.tar.gz'
-NeoBundle 'sjl/gundo.vim.git'
-NeoBundle 'matchit.zip'
-NeoBundle 'sudo.vim'
-
-NeoBundle 'taglist.vim'
-NeoBundle 'SrcExpl'
-NeoBundle 'Trinity'
-
-NeoBundle 'mattn/webapi-vim'
-
-NeoBundleLazy 'koron/nyancat-vim'
 
 call neobundle#end()
 
