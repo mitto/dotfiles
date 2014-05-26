@@ -8,9 +8,6 @@ call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-"plugin management{{{
-
-"color scheme{{{
 NeoBundle 'wombat256.vim'
 NeoBundleLazy 'tomasr/molokai'
 NeoBundleLazy 'altercation/vim-colors-solarized'
@@ -23,9 +20,7 @@ NeoBundleLazy 'mrkn/mrkn256.vim'
 NeoBundleLazy 'jpo/vim-railscasts-theme'
 NeoBundleLazy 'therubymug/vim-pyte'
 NeoBundleLazy 'tomasr/molokai'
-"}}}
 
-"text-object plugin{{{
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-syntax'
@@ -37,9 +32,7 @@ NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-diff'
 NeoBundle 'kana/vim-textobj-datetime'
-"}}}
 
-"completion plugin{{{
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
   \     'mac' : 'make -f make_mac.mak',
@@ -74,9 +67,6 @@ NeoBundleLazy 'taichouchou2/alpaca_complete', {
   \     'filetypes': ['ruby', 'eruby', 'haml']
   \ }}
 
-"}}}
-
-"unite{{{
 NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
   \ 'depends' : 'Shougo/unite.vim' }
@@ -91,7 +81,6 @@ NeoBundle 'tsukkee/unite-tag', {
 NeoBundle 'sgur/unite-qf', {
   \ 'depends' : 'Shougo/unite.vim' }
 
-"ruby/rails"{{{
 NeoBundleLazy 'ujihisa/unite-rake', {
   \ 'depends' : 'Shougo/unite.vim',
   \ 'autoload': {
@@ -102,12 +91,7 @@ NeoBundleLazy 'basyura/unite-rails', {
   \ 'autoload': {
   \    'filetypes': ['ruby', 'eruby', 'haml']
   \ }}
-"}}}
-"}}}
 
-"syntax plugin{{{
-
-"develop {{{
 NeoBundle 'html5.vim', {
   \ 'autoload' : { 'filetypes' : 'html' }}
 NeoBundle 'hail2u/vim-css3-syntax.git', {
@@ -123,25 +107,19 @@ NeoBundle 'petdance/vim-perl', {
   \ 'autoload' : { 'filetypes' : 'perl' }}
 NeoBundle 'rest.vim', {
   \ 'autoload' : { 'filetypes' : 'rst' }}
-"}}}
 
-"server conf{{{
 NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
 "}}}
 NeoBundleLazy 'Syntastic'
-"}}}
 
-"Indent plugin"{{{
 NeoBundle 'pangloss/vim-javascript', {
   \ 'autoload' : { 'filetypes' : ['javascript', 'jquery'] }}
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
-"}}}
 
-"document plugin"{{{
 NeoBundleLazy 'vim-jp/vimdoc-ja'
 
 NeoBundleLazy 'thinca/vim-ref'
@@ -155,18 +133,14 @@ NeoBundleLazy 'taka84u9/vim-ref-ri', {
   \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'skwp/vim-rspec', {
   \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-"}}}
 
-"develop plugin"{{{
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'ZenCoding.vim', {
   \ 'autoload' : { 'filetypes' : 'html' }}
 NeoBundleLazy 'ruby-matchit', {
   \ 'autoload' : { 'filetypes' : ['ruby', 'eruby', 'haml'] } }
 NeoBundle 'tpope/vim-endwise.git'
-"}}}
 
-"other plugin"{{{
 NeoBundle 'Lokaltog/powerline', {
   \ 'rtp' : 'powerline/bindings/vim',
   \ 'build' : {
@@ -175,7 +149,6 @@ NeoBundle 'Lokaltog/powerline', {
   \ }}
 NeoBundle 'taichouchou2/alpaca_powertabline'
 
-"utility plugin"{{{
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'YankRing.vim'
 NeoBundle 'tyru/open-browser.vim'
@@ -185,21 +158,14 @@ NeoBundleLazy 'project.tar.gz'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'sudo.vim'
-"}}}
 
-"source explore
 NeoBundle 'taglist.vim'
 NeoBundle 'SrcExpl'
 NeoBundle 'Trinity'
 
-"library plugin
 NeoBundle 'mattn/webapi-vim'
 
-"fun plugin
 NeoBundleLazy 'koron/nyancat-vim'
-"}}}
-"}}}
-
 
 call neobundle#end()
 
@@ -207,5 +173,3 @@ filetype plugin indent on
 
 " startup check uninstalled bundles.
 NeoBundleCheck
-
-" vim:set foldmethod=marker:
