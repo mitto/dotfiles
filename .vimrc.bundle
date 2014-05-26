@@ -38,29 +38,6 @@ NeoBundle 'Shougo/neosnippet', {
   \ }}
 
 NeoBundle 'Shougo/unite.vim'
-NeoBundleLazy 'ujihisa/unite-colorscheme', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundle 'Shougo/unite-ssh', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundle 'osyo-manga/unite-filetype', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundle 'tsukkee/unite-help', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundle 'tsukkee/unite-tag', {
-  \ 'depends' : 'Shougo/unite.vim' }
-NeoBundle 'sgur/unite-qf', {
-  \ 'depends' : 'Shougo/unite.vim' }
-
-NeoBundleLazy 'ujihisa/unite-rake', {
-  \ 'depends' : 'Shougo/unite.vim',
-  \ 'autoload': {
-  \    'filetypes': ['ruby', 'eruby', 'haml']
-  \ }}
-NeoBundleLazy 'basyura/unite-rails', {
-  \ 'depends' : 'Shougo/unite.vim',
-  \ 'autoload': {
-  \    'filetypes': ['ruby', 'eruby', 'haml']
-  \ }}
 
 NeoBundle 'html5.vim', {
   \ 'autoload' : { 'filetypes' : 'html' }}
