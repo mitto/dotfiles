@@ -36,25 +36,6 @@ NeoBundle 'Shougo/neosnippet', {
   \ 'autoload' : {
   \   'insert' : 1,
   \ }}
-NeoBundle 'Shougo/neocomplcache-rsense', {
-  \ 'depends': 'Shougo/neocomplcache',
-  \ 'autoload': {
-  \     'filetypes': ['ruby', 'eruby', 'haml']
-  \ }}
-NeoBundleLazy 'taichouchou2/rsense-0.3', {
-  \ 'build' : {
-  \    'mac': 'ruby etc/config.rb > ~/.rsense',
-  \    'unix': 'ruby etc/config.rb > ~/.rsense',
-  \ }}
-NeoBundleLazy 'taichouchou2/alpaca_complete', {
-  \ 'depends' :  ['tpope/vim-rails', 'Shougo/neocomplcache'],
-  \ 'build' : {
-  \    'mac':  'gem install alpaca_complete',
-  \    'unix': 'gem install alpaca_complete',
-  \ },
-  \ 'autoload': {
-  \     'filetypes': ['ruby', 'eruby', 'haml']
-  \ }}
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'ujihisa/unite-colorscheme', {
