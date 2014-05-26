@@ -145,7 +145,7 @@ NeoBundle 'kakkyz81/evervim'
 NeoBundle 'mattn/calendar-vim'
 NeoBundleLazy 'project.tar.gz'
 NeoBundle 'sjl/gundo.vim.git'
-NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'matchit.zip'
 NeoBundle 'sudo.vim'
 
 NeoBundle 'taglist.vim'
