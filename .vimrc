@@ -4,9 +4,6 @@ source ~/dotfiles/.vimrc.bundle
 "基本的な設定の読み込み
 source ~/dotfiles/.vimrc.basic
 
-"カラースキームの設定
-source ~/dotfiles/.vimrc.colorscheme
-
 "補完周りの設定読み込み
 source ~/dotfiles/.vimrc.completion
 
