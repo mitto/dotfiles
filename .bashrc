@@ -15,6 +15,8 @@ if [ -f $BASH_COMPLETION_SCRIPT ]; then
   source $BASH_COMPLETION_SCRIPT
 fi
 
+which aws && complete -C aws_completer aws
+
 case `uname` in
   Darwin*)
     alias ls="ls -G";;
