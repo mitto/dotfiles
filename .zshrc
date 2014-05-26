@@ -76,6 +76,9 @@ case ${UID} in
     ;;
 esac
 
+# loading alias config
+source $HOME/dotfiles/shell.d/alias.sh
+
 #====================================
 # windowのタイトルを設定する
 #
@@ -97,26 +100,6 @@ esac
 #    ;;
 #esac
 
-#====================================
-# コマンドエイリアスの設定
-#====================================
-# OSごとで必要になるエイリアスを設定
-case ${OSTYPE} in
-    darwin*)
-        alias ls='ls -G'
-        alias idm='wine ~/Dropbox/idm/IDM.exe'
-        alias cisco='screen /dev/tty.usbserial 9600'
-        ;;
-    *)
-       alias ls='ls --color=auto'
-        ;;
-esac
-
-# 各OSで共通なエイリアスを設定
-alias vi='vim'
-alias sudo='sudo '
-alias l='ls -laF'
-alias ll='l'
 
 #====================================
 # zsh オプション

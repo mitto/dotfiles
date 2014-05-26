@@ -19,14 +19,5 @@ if [ -f /usr/bin/aws ]; then
   complete -C aws_completer aws
 fi
 
-case `uname` in
-  Darwin*)
-    alias ls="ls -G";;
-  Linux*)
-    alias ls="ls --color=auto";;
-esac
-
-alias ll="ls -la"
-
-alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
-alias nvim="vim -u NONE -N"
+# loading alias config
+source $HOME/dotfiles/shell.d/alias.sh
