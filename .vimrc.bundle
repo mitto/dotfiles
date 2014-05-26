@@ -101,7 +101,6 @@ NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
-"}}}
 NeoBundleLazy 'Syntastic'
 
 NeoBundle 'pangloss/vim-javascript', {
