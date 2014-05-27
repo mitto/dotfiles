@@ -4,9 +4,6 @@ source ~/dotfiles/.vimrc.bundle
 "基本的な設定の読み込み
 source ~/dotfiles/.vimrc.basic
 
-"エンコーディング周りの設定
-source ~/dotfiles/.vimrc.encoding
-
 "インデント周りの設定
 source ~/dotfiles/.vimrc.indent
 
