@@ -4,9 +4,6 @@ source ~/dotfiles/.vimrc.bundle
 "基本的な設定の読み込み
 source ~/dotfiles/.vimrc.basic
 
-"検索周りの設定
-source ~/dotfiles/.vimrc.search
-
 "ステータスライン周りの設定
 source ~/dotfiles/.vimrc.statusline
 
