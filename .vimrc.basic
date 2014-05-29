@@ -145,15 +145,6 @@ let g:neocomplcache_min_syntax_length = 3 "シンタックスをキャッシュ�
 let g:neocomplcache_force_overwrite_completefunc = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_skip_auto_completion_time = '0.3'
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-
-" keymap
-imap <expr><C-g>     neocomplcache#undo_completion()
-imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
-imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
-" imap <silent><expr><TAB>   pumvisible() ? "\<C-N>" : "\<TAB>"
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "------------------------------------------
 "文字エンコード周り
