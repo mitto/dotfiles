@@ -11,8 +11,11 @@
 	co = checkout
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	oneline = log --oneline --graph
-	glog = log --graph --pretty
+	oneline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %Cred%d %Creset%s' --date relative
+	extraline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %C(magenta)%an %Cred%d %Creset%s' --date local
+	glog = log --graph --pretty=fuller
+	sd = diff --staged
+	di = diff
 [help]
 	autocorrect = 1
 [color]
