@@ -115,7 +115,7 @@ syntax on
 set mouse=a
 set ttymouse=xterm2
 
-set nf=alpha,hex
+set nrformats=alpha,hex
 
 set virtualedit=block
 
