@@ -67,8 +67,6 @@ set fileformats=unix,dos,mac "end-of-line formats
 
 colorscheme wombat256mod
 
-set t_Co=256
-
 set wildmenu
 
 set backspace=indent,eol,start
