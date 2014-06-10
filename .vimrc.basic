@@ -68,28 +68,17 @@ set fileformats=unix,dos,mac "end-of-line formats
 colorscheme wombat256mod
 
 set wildmenu
-
 set backspace=indent,eol,start
-
 set history=100
-
 set hidden
-
 set shortmess+=I
-
 set whichwrap=b,s,[,],<,>,~,h,l
-
 set backup
-
 set writebackup
 set backupcopy=yes
-
 set backupdir=~/dotfiles/.vim/backup
-
 set directory=~/dotfiles/.vim/swap
-
 set number
-
 set list
 
 augroup highlightIdegraphicSpace
@@ -99,51 +88,32 @@ augroup highlightIdegraphicSpace
 augroup END
 
 set showmatch
-
 set noerrorbells
 set novisualbell
 "set visualbell t_vb=
-
 set cursorline
-
 set clipboard+=autoselect
-
 syntax on
-
 set mouse=a
 set ttymouse=xterm2
-
 set nrformats=alpha,hex
-
 set virtualedit=block
 
 "最後の編集位置にカーソルを自動的に移動させる
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 set splitright
-
 set splitbelow
-
 set completeopt=menuone,preview
-
 set autoindent
 set smartindent
-
 set expandtab
-
 set tabstop<
-
 set shiftwidth=2
-
 set softtabstop=2
-
 set smartcase
-
 set ignorecase
-
 set incsearch
-
 set wrapscan
-
 set laststatus=2
-
 set ruler
