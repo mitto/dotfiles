@@ -67,19 +67,8 @@ set fileformats=unix,dos,mac "end-of-line formats
 
 colorscheme wombat256mod
 
-set wildmenu
-set backspace=indent,eol,start
-set history=100
-set hidden
-set shortmess+=I
-set whichwrap=b,s,[,],<,>,~,h,l
-set backup
-set writebackup
-set backupcopy=yes
-set backupdir=~/dotfiles/.vim/backup
-set directory=~/dotfiles/.vim/swap
-set number
-set list
+"最後の編集位置にカーソルを自動的に移動させる
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 augroup highlightIdegraphicSpace
   autocmd!
@@ -87,33 +76,43 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
-set showmatch
-set noerrorbells
-set novisualbell
-"set visualbell t_vb=
-set cursorline
-set clipboard+=autoselect
 syntax on
-set mouse=a
-set ttymouse=xterm2
-set nrformats=alpha,hex
-set virtualedit=block
 
-"最後の編集位置にカーソルを自動的に移動させる
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-set splitright
-set splitbelow
-set completeopt=menuone,preview
+"set visualbell t_vb=
 set autoindent
-set smartindent
+set backspace=indent,eol,start
+set backup
+set backupcopy=yes
+set backupdir=~/dotfiles/.vim/backup
+set clipboard+=autoselect
+set completeopt=menuone,preview
+set cursorline
+set directory=~/dotfiles/.vim/swap
 set expandtab
-set tabstop<
-set shiftwidth=2
-set softtabstop=2
-set smartcase
+set hidden
+set history=100
 set ignorecase
 set incsearch
-set wrapscan
 set laststatus=2
+set list
+set mouse=a
+set noerrorbells
+set novisualbell
+set nrformats=alpha,hex
+set number
 set ruler
+set shiftwidth=2
+set shortmess+=I
+set showmatch
+set smartcase
+set smartindent
+set softtabstop=2
+set splitbelow
+set splitright
+set tabstop<
+set ttymouse=xterm2
+set virtualedit=block
+set whichwrap=b,s,[,],<,>,~,h,l
+set wildmenu
+set wrapscan
+set writebackup
