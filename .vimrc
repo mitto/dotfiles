@@ -43,6 +43,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'mattn/emmet-vim'
 
+NeoBundle 'stephpy/vim-yaml'
+
 NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
