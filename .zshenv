@@ -93,16 +93,5 @@ typeset -U path
 ##               globがマッチしなかったり存在しないパスを無視する。
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
-path=(/bin(N-/)
-  /sbin(N-/)
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  /usr/bin(N-/)
-  /usr/sbin(N-/)
-  $HOME/.rbenv/bin(N-/)
-  $HOME/bin(N-/)
-)
 
-if [ -e $HOME/.rbenv ]; then
-  eval "$(rbenv init -)"
-fi
+source $HOME/dotfiles/shell.d/initializer.sh
