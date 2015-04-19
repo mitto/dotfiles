@@ -1,7 +1,12 @@
 " vim:set foldmethod=marker:
 
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 if has('vim_starting')
- set nocompatible
+  if &compatible
+    set nocompatible
+  endif
  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
 endif
 
