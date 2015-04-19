@@ -3,7 +3,6 @@
 case ${OSTYPE} in
   darwin*)
     alias ls='ls -G'
-    alias idm='wine ~/Dropbox/idm/IDM.exe'
     alias cisco='screen /dev/tty.usbserial 9600'
     ;;
   *)
