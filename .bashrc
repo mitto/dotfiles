@@ -15,9 +15,6 @@ if [ -f $BASH_COMPLETION_SCRIPT ]; then
   source $BASH_COMPLETION_SCRIPT
 fi
 
-if [ -f /usr/bin/aws ]; then
-  complete -C aws_completer aws
-fi
-
-# loading alias config
+source $HOME/dotfiles/shell.d/initializer.sh
 source $HOME/dotfiles/shell.d/alias.sh
+source $HOME/dotfiles/shell.d/complete.sh

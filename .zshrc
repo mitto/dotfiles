@@ -302,6 +302,9 @@ bindkey-advice-before "^G" afu+cancel
 bindkey-advice-before "^[" afu+cancel
 bindkey-advice-before "^J" afu+cancel afu+accept-line
 
+source $HOME/dotfiles/shell.d/alias.sh
+source $HOME/dotfiles/shell.d/complete.sh
+
 # 個別設定用
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
