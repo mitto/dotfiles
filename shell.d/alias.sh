@@ -10,10 +10,12 @@ case ${OSTYPE} in
     ;;
 esac
 
+alias g="git"
 alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
 
 alias vi='vim'
 alias nvim="vim -u NONE -N"
+alias svim="/usr/bin/vim"
 
 alias l='ls -laF'
 alias ll='l'
