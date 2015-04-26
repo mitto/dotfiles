@@ -45,29 +45,22 @@ setopt hist_expand             # 補完時にヒストリを自動的に展開�
 setopt no_beep                 # 補完候補がないときなどにビープ音を鳴らさない。
 #setopt numeric_glob_sort       # 辞書順ではなく数字順に並べる。
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+#==================================================
+# for completion
+#==================================================
+
+# select completer
+zstyle ':completion:*' completer _expand _complete _approximate _ignored _prefix
+
 zstyle ':completion:*:default' menu select=2        # 補完候補を矢印キーなどで選択できるようにする
 zstyle ':completion:*:default' list-colors ""       # 補完候補に色を付ける（空文字列はデフォルト値を使うという意味）
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 zstyle ':completion:*' group-name ''                # 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%d%b'              # %B...%b: 「...」を太字にする。 %d: 補完方法のラベル
-#zstyle ':completion:*' use-cache yes                # 補完候補をキャッシュする。
-zstyle ':completion:*' verbose yes                  # 詳細な情報を使う。
 
-## 補完方法の設定。指定した順番に実行する。
-#### _oldlist 前回の補完結果を再利用する。
-#### _complete: 補完する。
-#### _match: globを展開しないで候補の一覧から補完する。
-#### _history: ヒストリのコマンドも補完候補とする。
-#### _ignored: 補完候補にださないと指定したものも補完候補とする。
-#### _approximate: 似ている補完候補も補完候補とする。
-#### _prefix: カーソル以降を無視してカーソル位置までで補完する。
-zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
-
-# sudo するときも補完が効くようにする
-#zstyle ':completion:sudo:*' environ PATH = "$SUDO_PATH:$PATH"
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                                           /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin \
-                                           /usr/local/git/bin
+# 誤りの許容数を指定する
+zstyle ':completion:*approximate:*' max-errors 2 NUMERIC
 
 bindkey "\e[Z" reverse-menu-complete                # Shift-Tabで補完候補を逆順する
 
