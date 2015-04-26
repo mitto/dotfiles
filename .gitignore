@@ -1,3 +1,5 @@
 .vim/bundle/
 .vim/backup/
 .vim/swap/
+
+.zsh.d/auto-fu*
