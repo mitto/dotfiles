@@ -199,6 +199,8 @@ set wildmenu
 set wrapscan
 set writebackup
 
+let g:netrw_dirhistmax = 0
+
 "------------------------------------------
 "nginx.vim
 "------------------------------------------
