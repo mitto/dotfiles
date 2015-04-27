@@ -36,5 +36,4 @@ export EDITOR=vim
 # 17,18 Exec. w/ SGID      black      cyan
 # 19,20 Dir, o+w, sticky   black      green
 # 21,22 Dir, o+w, unsticky black      brown
-export LSCOLORS=gxfxcxdxbxegedabagacad
-export LS_COLORS=$LSCOLORS
+export LSCOLORS=gxfxcxdxbxegedabagacad # for bsd ls
