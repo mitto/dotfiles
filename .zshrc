@@ -1,7 +1,7 @@
 bindkey -e
 
 # some autoload setting
-autoload -U compinit; compinit
+autoload -U compinit && compinit -u
 autoload -Uz colors && colors
 autoload history-search-end
 autoload -Uz is-at-least    # zshのバージョンチェック用関数を使えるようにする
