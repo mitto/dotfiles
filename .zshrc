@@ -50,7 +50,7 @@ setopt no_beep                 # 補完候補がないときなどにビープ�
 #==================================================
 
 # select completer
-zstyle ':completion:*' completer _expand _complete _approximate _ignored _prefix
+zstyle ':completion:*' completer _expand _complete _correct _ignored _prefix
 
 zstyle ':completion:*:default' menu select=2        # 補完候補を矢印キーなどで選択できるようにする
 zstyle ':completion:*:default' list-colors ""       # 補完候補に色を付ける（空文字列はデフォルト値を使うという意味）
