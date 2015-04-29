@@ -97,7 +97,7 @@ precmd() {
   if [ -e $ANTIGEN_SOURCE ]; then
     source $ANTIGEN_SOURCE
     antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-completions
+    antigen bundle zsh-users/zsh-completions src
     antigen bundle hchbaw/auto-fu.zsh --branch=pu
     antigen apply
   fi
