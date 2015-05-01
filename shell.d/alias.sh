@@ -20,6 +20,10 @@ alias svim="/usr/bin/vim"
 alias l='ls -laF'
 alias ll='l'
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # grep
 if type ggrep > /dev/null 2>&1; then
