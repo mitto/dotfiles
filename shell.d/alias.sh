@@ -2,11 +2,11 @@
 
 case ${OSTYPE} in
   darwin*)
-    alias ls='ls -G'
+    alias ls='ls -AGF'
     alias cisco='screen /dev/tty.usbserial 9600'
     ;;
   *)
-    alias ls='ls --color=auto'
+    alias ls='ls -AF --color=auto'
     ;;
 esac
 
