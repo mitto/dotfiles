@@ -103,8 +103,6 @@ precmd() {
   fi
 }
 
-source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
-
 () {
   # initialize powerline for zsh
   local ZSH_POWERLINE=$HOME/dotfiles/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
@@ -114,3 +112,6 @@ source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
 # machine local config loading
 ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 [[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
+
+# auto-fu loading
+[[ -n $USE_AUTO_FU_COMPLETION ]] && source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
