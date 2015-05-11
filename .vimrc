@@ -70,7 +70,6 @@ NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
 
 NeoBundle 'powerline/powerline', {
-  \ 'rev' : '2.1',
   \ 'rtp' : 'powerline/bindings/vim'
   \}
 NeoBundle 'taichouchou2/alpaca_powertabline'
