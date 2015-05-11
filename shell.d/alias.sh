@@ -5,6 +5,7 @@ case ${OSTYPE} in
     alias ls='ls -AGF'
     alias apc='screen /dev/tty.usbserial 2400'
     alias cisco='screen /dev/tty.usbserial 9600'
+    alias buffalo='screen /dev/tty.usbserial 19200'
     alias edgemax='screen /dev/tty.usbserial 115200'
     ;;
   *)
