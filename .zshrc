@@ -59,6 +59,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小�
 zstyle ':completion:*' group-name ''                # 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%d%b'              # %B...%b: 「...」を太字にする。 %d: 補完方法のラベル
 
+zstyle ':completion::expand:*' glob true            # echo /bin/*sh とかで展開する
+zstyle ':completion::expand:*' substitute true      # echo $(ls) とかで展開する
+
 # 誤りの許容数を指定する
 zstyle ':completion:*approximate:*' max-errors 2 NUMERIC
 
