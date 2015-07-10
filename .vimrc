@@ -74,6 +74,8 @@ NeoBundle 'powerline/powerline', {
   \}
 NeoBundle 'taichouchou2/alpaca_powertabline'
 
+NeoBundle 'elzr/vim-json'
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -420,3 +422,8 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
+
+"------------------------------------------
+" vim-json
+"------------------------------------------
+"let g:vim_json_syntax_conceal = 0
