@@ -102,6 +102,7 @@ precmd() {
     antigen bundle zsh-users/zsh-syntax-highlighting
     antigen bundle zsh-users/zsh-completions src
     antigen bundle hchbaw/auto-fu.zsh --branch=pu
+    antigen bundle mollifier/anyframe
     antigen apply
   fi
 }
@@ -118,3 +119,10 @@ ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 
 # auto-fu loading
 [[ -n $USE_AUTO_FU_COMPLETION ]] && source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
+
+# anyframe
+zstyle ":anyframe:selector:" use peco
+zstyle ":anyframe:selector:peco:" command 'peco --initial-filter SmartCase'
+
+bindkey '^xr' anyframe-widget-put-history
+bindkey '^x^r' anyframe-widget-put-history
