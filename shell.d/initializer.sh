@@ -37,3 +37,5 @@ export EDITOR=vim
 # 19,20 Dir, o+w, sticky   black      green
 # 21,22 Dir, o+w, unsticky black      brown
 export LSCOLORS=gxfxcxdxbxegedabagacad # for bsd ls
+
+export GOPATH=$HOME/.go
