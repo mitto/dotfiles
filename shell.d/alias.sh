@@ -28,6 +28,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+alias be='bundle exec'
+
 # grep
 if type ggrep > /dev/null 2>&1; then
   alias grep=ggrep
