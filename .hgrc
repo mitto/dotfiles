@@ -1,6 +1,6 @@
 [ui]
 username = mitto nagisa <mitto@mittostar.info>
-ignore = $HOME/.mercurial/hgignore
+ignore = $HOME/.hgignore_global
 
 [extensions]
 churn =
