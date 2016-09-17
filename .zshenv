@@ -17,10 +17,6 @@ typeset -U path
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 
-source $HOME/dotfiles/shell.d/initializer.sh
-source $HOME/dotfiles/shell.d/alias.sh
-source $HOME/dotfiles/shell.d/complete.sh
-
 # machine local config loading
 ZSH_LOCAL_ENV_CONFIG_FILE=$HOME/.zshenv.local
 [[ -e $ZSH_LOCAL_ENV_CONFIG_FILE ]] && source $ZSH_LOCAL_ENV_CONFIG_FILE

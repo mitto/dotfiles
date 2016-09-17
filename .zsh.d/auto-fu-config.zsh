@@ -1,7 +1,7 @@
 # for auto-fu config and functions
 () {
   # for auto-fu precompile
-  local S=$HOME/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-hchbaw-SLASH-auto-fu.zsh.git-PIPE-pu/auto-fu.zsh
+  local S=$ZPLUG_HOME/repos/hchbaw/auto-fu.zsh/auto-fu.zsh
   local D=$HOME/dotfiles/.zsh.d/auto-fu.zsh
   [[ -e "${D:r}.zwc" ]] && [[ "$S" -ot "${D:r}.zwc" ]] ||
     zsh -c "source $S; auto-fu-zcompile $D ${D:h}" >/dev/null 2>&1
@@ -49,6 +49,6 @@ EOT
   bindkey -M afu "$key" "$fun"
 }
 
-#bindkey-advice-before "^G" afu+cancel
-bindkey-advice-before "^[" afu+cancel
-bindkey-advice-before "^J" afu+cancel afu+accept-line
+bindkey-advice-before "" afu+cancel
+bindkey-advice-before "^J" afu+cancel
+#bindkey-advice-before "^J" afu+cancel afu+accept-line

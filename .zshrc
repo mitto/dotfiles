@@ -1,7 +1,140 @@
+# use emacs key binding
 bindkey -e
 
+## functions
+function update-diff-highlight () {
+  local latest_url=https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight
+  local bin_dir=$HOME/bin
+  local bin=$bin_dir/diff-highlight
+  [ ! -e $bin_dir ] && mkdir $bin_dir
+  echo Download latest diff-highlight
+  wget --no-verbose --progress=dot $latest_url -O $bin
+  echo Set Execute Permission
+  chmod +x $bin
+  echo diff-highlight update is Done
+}
+
+## configure command aliases
+case ${OSTYPE} in
+  darwin*)
+    alias ls="ls -AGF"
+    alias apc="screen /dev/tty.usbserial 2400"
+    alias cisco="screen /dev/tty.usbserial 9600"
+    alias buffalo="screen /dev/tty.usbserial 19200"
+    alias edgemax="screen /dev/tty.usbserial 115200"
+    ;;
+  *)
+    alias ls="ls -AF --color=auto"
+    ;;
+esac
+
+alias g="git"
+alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
+alias t="tig"
+
+alias v="vim"
+
+alias l="ls -laF"
+alias ll="l"
+alias h="anyframe-widget-put-history"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias be="bundle exec"
+
+## configure environment variables
+export PATH=$HOME/.rbenv/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+
+# rbenv initialize
+[[ -e $HOME/.rbenv ]] && eval "$(rbenv init -)"
+
+export LANG=ja_JP.UTF-8
+export LANGUAGE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+
+export EDITOR=vim
+
+#--------------------------------------------------------
+# ls color setting
+# - http://d.hatena.ne.jp/edvakf/20080413/1208042916
+# - http://news.mynavi.jp/column/zsh/009/index.html
+#--------------------------------------------------------
+# colors..
+#   a: black b: red c: green d: brown
+#   e: blue f: magenta g: cyan h: white
+#   A-H: bold colors x: default
+#
+# details...
+#       Type               Foreground Background
+# 1,2   Directory          blue       (default)
+# 3,4   Symlink            magenta    (default)
+# 5,6   Socket             green      (default)
+# 7,8   Pipe               brown      (default)
+# 9,10  Executable         red        (default)
+# 11,12 Block              blue       cyan
+# 13,14 Character          blue       brown
+# 15,16 Exec. w/ SUID      black      red
+# 17,18 Exec. w/ SGID      black      cyan
+# 19,20 Dir, o+w, sticky   black      green
+# 21,22 Dir, o+w, unsticky black      brown
+export LSCOLORS=gxfxcxdxbxegedabagacad # for bsd ls
+
+export GOPATH=$HOME/.go
+
+## configure plugins
+#
+### for zplug
+case ${OSTYPE} in
+  darwin*)
+    export ZPLUG_HOME=/usr/local/opt/zplug
+    ;;
+  *)
+    export ZPLUG_HOME=~/.zplug
+    ;;
+esac
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions", use:src
+zplug "hchbaw/auto-fu.zsh", at:pu
+zplug "mollifier/anyframe"
+
+zplug load --verbose
+
+
+## initialize powerline for zsh
+which powerline-config 2>&1 > /dev/null
+ret=$?
+[ $? -eq 0 ] && . "$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline/bindings/zsh/powerline.zsh"
+
+# anyframe
+zstyle ":anyframe:selector:" use peco
+zstyle ":anyframe:selector:peco:" command 'peco --initial-filter SmartCase'
+
+bindkey '^x^b' anyframe-widget-checkout-git-branch
+
+bindkey '^xr' anyframe-widget-execute-history
+bindkey '^x^r' anyframe-widget-execute-history
+
+bindkey '^xp' anyframe-widget-put-history
+bindkey '^x^p' anyframe-widget-put-history
+
+bindkey '^xg' anyframe-widget-cd-ghq-repository
+bindkey '^x^g' anyframe-widget-cd-ghq-repository
+
+bindkey '^xk' anyframe-widget-kill
+bindkey '^x^k' anyframe-widget-kill
+
+bindkey '^xi' anyframe-widget-insert-git-branch
+bindkey '^x^i' anyframe-widget-insert-git-branch
+
+bindkey '^xf' anyframe-widget-insert-filename
+bindkey '^x^f' anyframe-widget-insert-filename
+
 # some autoload setting
-autoload -U compinit && compinit -u
 autoload -Uz colors && colors
 autoload history-search-end
 autoload -Uz is-at-least    # zshのバージョンチェック用関数を使えるようにする
@@ -67,6 +200,12 @@ zstyle ':completion:*approximate:*' max-errors 2 NUMERIC
 
 bindkey "\e[Z" reverse-menu-complete                # Shift-Tabで補完候補を逆順する
 
+# for awscli
+which aws 2>&1 > /dev/null
+ret=$?
+[ $ret -eq 0 ] && . /usr/local/bin/aws_zsh_completer.sh
+
+
 #------------------------------------------------------------
 # コマンド履歴検索の設定
 # - http://news.mynavi.jp/column/zsh/004/index.html
@@ -74,55 +213,16 @@ bindkey "\e[Z" reverse-menu-complete                # Shift-Tabで補完候補�
 # コマンドの入力途中でCtrl+Pを入力すると入力履歴から
 # 該当する物を順次表示する
 #------------------------------------------------------------
-
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# http://izawa.hatenablog.jp/entry/2012/09/18/220106
-preexec() {
-  mycmd=(${(s: :)${1}})
-  echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):$mycmd[1]\e\\"
-}
+# enable compinit
+autoload -U compinit && compinit -u
 
-precmd() {
-  echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):idle\e\\"
-}
-
-#==================================================
-# etc..
-#==================================================
-() {
-  # for antigen.zsh
-  local ANTIGEN_SOURCE=$HOME/dotfiles/.zsh.d/antigen/antigen.zsh
-
-  if [ -e $ANTIGEN_SOURCE ]; then
-    source $ANTIGEN_SOURCE
-    antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-completions src
-    antigen bundle hchbaw/auto-fu.zsh --branch=pu
-    antigen bundle mollifier/anyframe
-    antigen apply
-  fi
-}
-
-() {
-  # initialize powerline for zsh
-  local ZSH_POWERLINE=$HOME/dotfiles/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
-  [[ -e $ZSH_POWERLINE ]] && source $ZSH_POWERLINE
-}
-
-# machine local config loading
+## machine local config loading
 ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 [[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
 
-# auto-fu loading
-[[ -n $USE_AUTO_FU_COMPLETION ]] && source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
-
-# anyframe
-zstyle ":anyframe:selector:" use peco
-zstyle ":anyframe:selector:peco:" command 'peco --initial-filter SmartCase'
-
-bindkey '^xr' anyframe-widget-put-history
-bindkey '^x^r' anyframe-widget-put-history
+[[ -z $DISABLE_AUTO_FU_COMPLETION ]] && source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
