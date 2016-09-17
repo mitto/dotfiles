@@ -3,148 +3,118 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
- set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+" Flags
+let s:use_dein = 1
+
+" vi compatibility
+if !&compatible
+  set nocompatible
 endif
 
-call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+" Prepare .vim dir
+let s:vimdir = $HOME . "/dotfiles/.vim"
+if has("vim_starting")
+  if ! isdirectory(s:vimdir)
+    call system("mkdir " . s:vimdir)
+  endif
+endif
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'wombat256.vim'
-
-NeoBundle 'vim-jp/vimdoc-ja'
-
-NeoBundle 'kana/vim-textobj-datetime'
-NeoBundle 'kana/vim-textobj-diff'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-fold'
-NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-jabraces'
-NeoBundle 'kana/vim-textobj-lastpat'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'kana/vim-textobj-user'
-
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
-
-" http://rhysd.hatenablog.com/entry/2013/08/24/223438
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 
-if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundleFetch 'Shougo/neocomplcache.vim'
-else
-  NeoBundleFetch 'Shougo/neocomplete.vim'
-  NeoBundle 'Shougo/neocomplcache.vim'
+" dein
+let s:dein_enabled  = 0
+if s:use_dein && v:version >= 704
+  let s:dein_enabled = 1
+
+  " Set dein paths
+  let s:dein_dir = s:vimdir . '/dein'
+  let s:dein_github = s:dein_dir . '/repos/github.com'
+  let s:dein_repo_name = "Shougo/dein.vim"
+  let s:dein_repo_dir = s:dein_github . '/' . s:dein_repo_name
+
+  " Check dein has been installed or not.
+  if !isdirectory(s:dein_repo_dir)
+    echo "dein is not installed, install now "
+    let s:dein_repo = "https://github.com/" . s:dein_repo_name
+    echo "git clone " . s:dein_repo . " " . s:dein_repo_dir
+    call system("git clone " . s:dein_repo . " " . s:dein_repo_dir)
+  endif
+  let &runtimepath = &runtimepath . "," . s:dein_repo_dir
+
+  " Check cache
+  if dein#load_state(s:dein_dir)
+
+    " Begin plugin part
+    call dein#begin(s:dein_dir)
+
+
+    call dein#add('Shougo/dein.vim')
+    call dein#add('wombat256.vim')
+
+    call dein#add('vim-jp/vimdoc-ja')
+
+    call dein#add('kana/vim-textobj-datetime')
+    call dein#add('kana/vim-textobj-diff')
+    call dein#add('kana/vim-textobj-entire')
+    call dein#add('kana/vim-textobj-fold')
+    call dein#add('kana/vim-textobj-function')
+    call dein#add('kana/vim-textobj-indent')
+    call dein#add('kana/vim-textobj-jabraces')
+    call dein#add('kana/vim-textobj-lastpat')
+    call dein#add('kana/vim-textobj-line')
+    call dein#add('kana/vim-textobj-syntax')
+    call dein#add('kana/vim-textobj-user')
+
+    call dein#add('Shougo/vimproc', {'build': 'make'})
+
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Shougo/neocomplcache.vim')
+
+    if s:meet_neocomplete_requirements()
+      call dein#config('neocomplcache.vim', {'lazy': 1})
+    else
+      call dein#config('neocomplete.vim', {'lazy': 1})
+    endif
+
+    call dein#add('Shougo/neosnippet')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('honza/vim-snippets')
+    call dein#add('Shougo/vimfiler')
+    call dein#add('Shougo/unite.vim')
+
+    call dein#add('nathanaelkane/vim-indent-guides')
+
+    call dein#add('thinca/vim-quickrun')
+    call dein#add('mattn/emmet-vim')
+
+    call dein#add('stephpy/vim-yaml')
+
+    call dein#add('nginx.vim', {'on_ft' : 'nginx' })
+    call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+
+    call dein#add('elzr/vim-json')
+
+    call dein#end()
+
+    call dein#save_state()
+  endif
 endif
 
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/unite.vim'
-
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'mattn/emmet-vim'
-
-NeoBundle 'stephpy/vim-yaml'
-
-NeoBundle 'nginx.vim', {
-  \ 'autoload' : { 'filetypes' : 'nginx' }}
-NeoBundle 'glidenote/keepalived-syntax.vim', {
-  \ 'autoload' : { 'filetypes' : 'keepalived' }}
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-
-NeoBundle 'elzr/vim-json'
-
-call neobundle#end()
-
 filetype plugin indent on
+syntax enable
 
-" startup check uninstalled bundles.
-NeoBundleCheck
+" Installation check.
+if dein#check_install()
+  call dein#install()
+endif
 
 "------------------------------------------
 " basic configs
 "------------------------------------------
-
-" auto detection encoding "{{{
-" http://www.kawaz.jp/pukiwiki/?vim#content_1_7
-if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
-endif
-if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
-    endif
-  endif
-  " 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
-endif
-" 日本語を含まない場合は fileencoding に encoding を使うようにする
-if has('autocmd')
-  function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
-  endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
-endif
-
-set fileformats=unix,dos,mac "end-of-line formats
-
-" TODO: double-width charctors
-" □とか○の文字があってもカーソル位置がずれないようにする
-"if exists('&ambiwidth')
-"  set ambiwidth=double
-"endif
-"}}}
-
 colorscheme wombat256mod
 
 "最後の編集位置にカーソルを自動的に移動させる
