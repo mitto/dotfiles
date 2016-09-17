@@ -169,6 +169,10 @@ set writebackup
 
 let g:netrw_dirhistmax = 0
 
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
 "------------------------------------------
 "nginx.vim
 "------------------------------------------
