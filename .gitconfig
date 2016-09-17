@@ -39,10 +39,10 @@
 	rs = remote set-url
 	rsp = remote set-url --push
 	rr = remote rm
-	s = stash
+	s = status
 	sa = stash --apply
 	sd = diff --staged
-	st = status
+	st = stash
 	unstage = reset HEAD --
 [help]
 	autocorrect = 1
