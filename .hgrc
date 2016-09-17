@@ -96,4 +96,4 @@ git = True
 [mq]
 secret = True
 
-%include $HOME/.mercurial/local.rc
+%include $HOME/.hgrc.local
