@@ -68,11 +68,8 @@ NeoBundle 'nginx.vim', {
   \ 'autoload' : { 'filetypes' : 'nginx' }}
 NeoBundle 'glidenote/keepalived-syntax.vim', {
   \ 'autoload' : { 'filetypes' : 'keepalived' }}
-
-NeoBundle 'powerline/powerline', {
-  \ 'rtp' : 'powerline/bindings/vim'
-  \}
-NeoBundle 'taichouchou2/alpaca_powertabline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'elzr/vim-json'
 
@@ -427,3 +424,9 @@ endif
 " vim-json
 "------------------------------------------
 let g:vim_json_syntax_conceal = 0
+
+"------------------------------------------
+" vim-airline
+"------------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
