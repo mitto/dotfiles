@@ -1,5 +1,6 @@
 .vim/bundle/
 .vim/backup/
 .vim/swap/
+.vim/dein/
 
 .zsh.d/auto-fu*
