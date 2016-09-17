@@ -122,6 +122,9 @@ if s:use_dein && v:version >= 704
     " Input Support
     call dein#add('rhysd/accelerated-jk')
 
+    " Rails Support
+    call dein#add('tpope/vim-rails')
+
     call dein#end()
 
     call dein#save_state()
