@@ -102,6 +102,7 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions", use:src
 zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "mollifier/anyframe"
+zplug "felixr/docker-zsh-completion"
 
 zplug load --verbose
 
@@ -137,6 +138,10 @@ bindkey '^x^i' anyframe-widget-insert-git-branch
 
 bindkey '^xf' anyframe-widget-insert-filename
 bindkey '^x^f' anyframe-widget-insert-filename
+
+# docker-zsh-completion
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # some autoload setting
 autoload -Uz colors && colors
