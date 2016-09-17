@@ -4,21 +4,55 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
+	preloadindex = true
+	fscache = true
 [push]
 	default = simple
 [alias]
-	st = status
+	a = add
+	b = branch
+	back = reset HEAD^
+	bd = branch -D
+	bf = branch -f
+	cb = checkout -b
 	co = checkout
-	unstage = reset HEAD --
+	d = diff
+	extraline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %C(magenta)%an %Cred%d %Creset%s' --date local --decorate --stat
+	f = fetch
+	fa = fetch --all
+	g = grep
+	gc = grep -C
+	gr = grep -r
+	graph = log --decorate --graph --oneline --stat
+	grc = grep -r -C
+	glog = log --graph --pretty=fuller --decorate
 	last = log -1 HEAD
-	oneline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %Cred%d %Creset%s' --date relative
-	extraline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %C(magenta)%an %Cred%d %Creset%s' --date local
-	glog = log --graph --pretty=fuller
+  me = !git config --get-regexp user
+	oneline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %Cred%d %Creset%s' --date relative --decorate
+	p = pull
+	pf = push -f
+	r = remote
+	ra = remote add
+	rb = rebase
+	rs = remote set-url
+	rsp = remote set-url --push
+	rr = remote rm
+	s = stash
+	sa = stash --apply
 	sd = diff --staged
-	di = diff
+	st = status
+	unstage = reset HEAD --
 [help]
 	autocorrect = 1
 [color]
 	ui = true
 [include]
 	path = ~/.gitconfig.local
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[diff]
+	compactionHeuristic = true
+[interactive]
+	diffFilter = diff-highlight
