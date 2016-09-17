@@ -110,6 +110,7 @@ if s:use_dein && v:version >= 704
     call dein#add('nginx.vim', {'on_ft' : 'nginx' })
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
     call dein#add('elzr/vim-json')
+    call dein#add('slim-template/vim-slim')
 
     " Powerline Support
     call dein#add('vim-airline/vim-airline')
