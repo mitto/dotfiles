@@ -109,7 +109,10 @@ zplug load --verbose
 ## initialize powerline for zsh
 which powerline-config 2>&1 > /dev/null
 ret=$?
-[ $? -eq 0 ] && . "$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline/bindings/zsh/powerline.zsh"
+if [ $ret -eq 0 ]; then
+  export POWERLINE_STATUS_ROOT_PATH="$(pip show powerline-status | grep Location | awk '{ print $2 }')"
+  . $POWERLINE_STATUS_ROOT_PATH/powerline/bindings/zsh/powerline.zsh
+fi
 
 # anyframe
 zstyle ":anyframe:selector:" use peco
