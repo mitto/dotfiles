@@ -103,6 +103,7 @@ zplug "zsh-users/zsh-completions", use:src
 zplug "hchbaw/auto-fu.zsh", at:pu
 zplug "mollifier/anyframe"
 zplug "felixr/docker-zsh-completion"
+zplug "wakeful/zsh-packer"
 
 zplug load --verbose
 
