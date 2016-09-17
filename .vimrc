@@ -95,6 +95,7 @@ if s:use_dein && v:version >= 704
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('tpope/vim-fugitive')
 
     call dein#add('elzr/vim-json')
 
