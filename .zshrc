@@ -30,7 +30,8 @@ esac
 
 alias g="git"
 alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
-alias t="tig"
+alias t="tmux"
+alias ti="tig"
 
 alias v="vim"
 
