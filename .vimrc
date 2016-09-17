@@ -49,12 +49,16 @@ if s:use_dein && v:version >= 704
     " Begin plugin part
     call dein#begin(s:dein_dir)
 
-
+    " Plugin Manager
     call dein#add('Shougo/dein.vim')
+
+    " Color Scheme
     call dein#add('wombat256.vim')
 
+    " Help Document
     call dein#add('vim-jp/vimdoc-ja')
 
+    " Text Object
     call dein#add('kana/vim-textobj-datetime')
     call dein#add('kana/vim-textobj-diff')
     call dein#add('kana/vim-textobj-entire')
@@ -67,8 +71,11 @@ if s:use_dein && v:version >= 704
     call dein#add('kana/vim-textobj-syntax')
     call dein#add('kana/vim-textobj-user')
 
+    " Library
+    "" Asynchronous
     call dein#add('Shougo/vimproc', {'build': 'make'})
 
+    " Completion
     call dein#add('Shougo/neocomplete.vim')
     call dein#add('Shougo/neocomplcache.vim')
 
@@ -78,26 +85,40 @@ if s:use_dein && v:version >= 704
       call dein#config('neocomplete.vim', {'lazy': 1})
     endif
 
+    " Snippets
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('honza/vim-snippets')
-    call dein#add('Shougo/vimfiler')
-    call dein#add('Shougo/unite.vim')
 
+    " Filer
+    call dein#add('Shougo/vimfiler')
+
+    " Indent Support
     call dein#add('nathanaelkane/vim-indent-guides')
 
+    " Unite
+    call dein#add('Shougo/unite.vim')
+
+    " Code Execute
     call dein#add('thinca/vim-quickrun')
+
+    " HTML Support
     call dein#add('mattn/emmet-vim')
 
+    " Syntax Support
     call dein#add('stephpy/vim-yaml')
-
     call dein#add('nginx.vim', {'on_ft' : 'nginx' })
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
+    call dein#add('elzr/vim-json')
+
+    " Powerline Support
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
+
+    " Git Support
     call dein#add('tpope/vim-fugitive')
 
-    call dein#add('elzr/vim-json')
+    " Input Support
     call dein#add('rhysd/accelerated-jk')
 
     call dein#end()
