@@ -98,6 +98,7 @@ if s:use_dein && v:version >= 704
     call dein#add('tpope/vim-fugitive')
 
     call dein#add('elzr/vim-json')
+    call dein#add('rhysd/accelerated-jk')
 
     call dein#end()
 
@@ -405,3 +406,9 @@ let g:vim_json_syntax_conceal = 0
 "------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+"------------------------------------------
+" accelerated-jk
+"------------------------------------------
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
