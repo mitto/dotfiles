@@ -14,6 +14,8 @@
 	back = reset HEAD^
 	bd = branch -D
 	bf = branch -f
+	c = commit
+	ca = commit --amend
 	cb = checkout -b
 	co = checkout
 	d = diff
