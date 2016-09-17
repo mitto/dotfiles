@@ -8,7 +8,7 @@ function update-diff-highlight () {
   local bin=$bin_dir/diff-highlight
   [ ! -e $bin_dir ] && mkdir $bin_dir
   echo Download latest diff-highlight
-  wget --no-verbose --progress=dot $latest_url -O $bin
+  curl $latest_url -o $bin
   echo Set Execute Permission
   chmod +x $bin
   echo diff-highlight update is Done
