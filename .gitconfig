@@ -10,6 +10,7 @@
 	default = simple
 [alias]
 	a = add
+	ap = add -p
 	b = branch
 	back = reset HEAD^
 	bd = branch -D
