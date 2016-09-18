@@ -20,3 +20,7 @@ typeset -U path
 # machine local config loading
 ZSH_LOCAL_ENV_CONFIG_FILE=$HOME/.zshenv.local
 [[ -e $ZSH_LOCAL_ENV_CONFIG_FILE ]] && source $ZSH_LOCAL_ENV_CONFIG_FILE
+
+# 単語区切りの指定
+# default: *?_-.[]~=/&;!#$%^(){}<>
+export WORDCHARS="*?[]~;!$%^(){}<>"
