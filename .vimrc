@@ -70,6 +70,7 @@ if s:use_dein && v:version >= 704
     call dein#add('kana/vim-textobj-line')
     call dein#add('kana/vim-textobj-syntax')
     call dein#add('kana/vim-textobj-user')
+    call dein#add('rhysd/vim-textobj-ruby')
 
     " Library
     "" Asynchronous
