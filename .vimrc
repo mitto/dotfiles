@@ -123,6 +123,7 @@ if s:use_dein && v:version >= 704
 
     " Input Support
     call dein#add('rhysd/accelerated-jk')
+    call dein#add('kana/vim-smartinput')
 
     " Rails Support
     call dein#add('tpope/gem-ctags')
