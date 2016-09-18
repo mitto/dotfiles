@@ -117,6 +117,7 @@ if s:use_dein && v:version >= 704
     call dein#add('vim-airline/vim-airline-themes')
 
     " Git Support
+    call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
 
     " Input Support
