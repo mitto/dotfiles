@@ -124,6 +124,7 @@ if s:use_dein && v:version >= 704
     " Input Support
     call dein#add('rhysd/accelerated-jk')
     call dein#add('kana/vim-smartinput')
+    call dein#add('cohama/vim-smartinput-endwise')
 
     " Rails Support
     call dein#add('tpope/gem-ctags')
@@ -454,3 +455,9 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:neocomplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
+
+
+"------------------------------------------
+" vim-smartinput-endwise
+"------------------------------------------
+call smartinput_endwise#define_default_rules()
