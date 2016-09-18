@@ -31,7 +31,7 @@
 	grc = grep -r -C
 	glog = log --graph --pretty=fuller --decorate
 	last = log -1 HEAD
-  me = !git config --get-regexp user
+	me = !git config --get-regexp user
 	oneline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %Cred%d %Creset%s' --date relative --decorate
 	p = pull
 	pf = push -f
@@ -42,6 +42,7 @@
 	rsp = remote set-url --push
 	rr = remote rm
 	s = status
+	sh = show
 	sa = stash --apply
 	sd = diff --staged
 	st = stash
