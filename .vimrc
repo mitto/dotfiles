@@ -124,6 +124,7 @@ if s:use_dein && v:version >= 704
     call dein#add('rhysd/accelerated-jk')
 
     " Rails Support
+    call dein#add('tpope/vim-bundler')
     call dein#add('tpope/vim-rails')
 
     call dein#end()
