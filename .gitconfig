@@ -18,6 +18,7 @@
 	c = commit
 	ca = commit --amend
 	cb = checkout -b
+	cm = commit -m
 	co = checkout
 	d = diff
 	extraline = log --oneline --graph --pretty=format:'%C(Yellow)%h %Cgreen%cd %Cblue%cn %C(magenta)%an %Cred%d %Creset%s' --date local --decorate --stat
