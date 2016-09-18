@@ -4,7 +4,7 @@ function create-folder () {
   local folder_path=$1
   if [ ! -e $folder_path ]; then
     echo create bin folder : $folder_path
-    mkdir $folder_path
+    mkdir -p $folder_path
   fi
 }
 
@@ -29,10 +29,16 @@ do
   create-symlink $file
 done
 
-create-folder $HOME/bin
-
 case ${OSTYPE} in
   darwin*)
     create-symlink .brewfile
     ;;
 esac
+
+create-folder $HOME/bin
+create-folder $HOME/.rbenv/plugins
+
+RBENV_DEFAULT_GEMS_PATH=$HOME/.rbenv/plugins/rbenv-default-gems
+[ ! -e $RBENV_DEFAULT_GEMS_PATH ] && git clone https://github.com/rbenv/rbenv-default-gems.git $RBENV_DEFAULT_GEMS_PATH
+
+create-symlink .rbenv/default-gems
