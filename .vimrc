@@ -128,7 +128,7 @@ if s:use_dein && v:version >= 704
     call dein#add('cohama/vim-smartinput-endwise')
 
     " Rails Support
-    call dein#add('tpope/gem-ctags')
+    call dein#add('szw/vim-tags')
     call dein#add('tpope/vim-bundler')
     call dein#add('tpope/vim-rails')
     call dein#add('osyo-manga/vim-monster')
