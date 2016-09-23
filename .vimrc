@@ -112,6 +112,7 @@ if s:use_dein && v:version >= 704
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
     call dein#add('elzr/vim-json')
     call dein#add('slim-template/vim-slim')
+    call dein#add('scrooloose/syntastic')
 
     " Powerline Support
     call dein#add('vim-airline/vim-airline')
@@ -461,3 +462,9 @@ let g:neocomplete#sources#omni#input_patterns = {
 " vim-smartinput-endwise
 "------------------------------------------
 call smartinput_endwise#define_default_rules()
+
+"------------------------------------------
+" syntastic
+"------------------------------------------
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
