@@ -208,6 +208,8 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+au BufNewFile,BufRead Schemafile setl ft=ruby " for ridgepole schemafile"
+
 "------------------------------------------
 "nginx.vim
 "------------------------------------------
