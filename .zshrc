@@ -162,6 +162,7 @@ autoload -Uz is-at-least    # zshのバージョンチェック用関数を使�
 autoload -Uz add-zsh-hook
 
 setopt interactive_comments # # 以降をコメントとして扱う
+setopt transient_rprompt    # コマンド実行後は右プロンプトを消す
 
 setopt auto_cd             # ディレクトリ名のみで移動できるようにする
 setopt auto_pushd          # 移動したディレクトリを自動でpushdしてくれる
