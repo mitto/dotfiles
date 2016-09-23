@@ -166,6 +166,7 @@ setopt transient_rprompt    # コマンド実行後は右プロンプトを消�
 
 setopt auto_cd             # ディレクトリ名のみで移動できるようにする
 setopt auto_pushd          # 移動したディレクトリを自動でpushdしてくれる
+setopt pushd_ignore_dups   # 重複したディレクトリをpushdしない
 setopt correct             # コマンドのミスタイプを訂正するか聞いてくれる
 setopt auto_resume         # サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
 setopt ignore_eof          # ^D でシェルを終了しない
