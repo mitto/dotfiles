@@ -98,6 +98,7 @@ case ${OSTYPE} in
 esac
 source $ZPLUG_HOME/init.zsh
 
+zplug "zplug/zplug"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions", use:src
 zplug "hchbaw/auto-fu.zsh", at:pu
