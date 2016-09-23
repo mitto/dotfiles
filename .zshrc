@@ -201,6 +201,7 @@ setopt glob_complete           # globを展開しないで候補の一覧から�
 setopt extended_glob           # 拡張グロブで補完(~とか^とか。例えばless *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ)
 setopt hist_expand             # 補完時にヒストリを自動的に展開する。
 setopt no_beep                 # 補完候補がないときなどにビープ音を鳴らさない。
+setopt print_eight_bit         # 日本語が文字化けしないように8bit文字を有効にする
 #setopt numeric_glob_sort       # 辞書順ではなく数字順に並べる。
 
 #==================================================
