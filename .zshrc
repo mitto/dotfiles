@@ -161,6 +161,8 @@ autoload -Uz is-at-least    # zshのバージョンチェック用関数を使�
 # - http://d.hatena.ne.jp/kiririmode/20120327/p1
 autoload -Uz add-zsh-hook
 
+setopt interactive_comments # # 以降をコメントとして扱う
+
 setopt auto_cd             # ディレクトリ名のみで移動できるようにする
 setopt auto_pushd          # 移動したディレクトリを自動でpushdしてくれる
 setopt correct             # コマンドのミスタイプを訂正するか聞いてくれる
