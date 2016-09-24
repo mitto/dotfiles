@@ -131,7 +131,6 @@ if s:use_dein && v:version >= 704
     call dein#add('szw/vim-tags')
     call dein#add('tpope/vim-bundler')
     call dein#add('tpope/vim-rails')
-    call dein#add('osyo-manga/vim-monster')
 
     call dein#end()
 
@@ -447,18 +446,6 @@ let g:airline#extensions#tabline#enabled = 1
 "------------------------------------------
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-
-"------------------------------------------
-" vim-monster
-"------------------------------------------
-" Set async completion.
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-"
-" Use neocomplete.vim
-let g:neocomplete#sources#omni#input_patterns = {
-\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-\}
-
 
 "------------------------------------------
 " vim-smartinput-endwise
