@@ -38,14 +38,16 @@
 	r = remote
 	ra = remote add
 	rb = rebase
+	rbi = rebase -i
 	rs = remote set-url
 	rsp = remote set-url --push
 	rr = remote rm
-	s = status
 	sh = show
 	sa = stash --apply
 	sd = diff --staged
-	st = stash
+	st = status
+	stsh = stash
+	stsha = stash apply
 	unstage = reset HEAD --
 [help]
 	autocorrect = 1
