@@ -9,6 +9,7 @@ case ${OSTYPE} in
     alias cisco="screen /dev/tty.usbserial 9600"
     alias buffalo="screen /dev/tty.usbserial 19200"
     alias edgemax="screen /dev/tty.usbserial 115200"
+    alias pip="pip3"
     ;;
   *)
     alias ls="ls -AF --color=auto"
@@ -23,7 +24,6 @@ alias v="vim"
 
 alias l="ls -laF"
 alias ll="l"
-alias h="anyframe-widget-put-history"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -31,16 +31,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias be="bundle exec"
-
-[[ -e $HOME/.rbenv ]] && eval "$(rbenv init -)" # rbenv initialize
-
-## initialize powerline for zsh
-which powerline-config 2>&1 > /dev/null
-ret=$?
-if [ $ret -eq 0 ]; then
-  export POWERLINE_STATUS_ROOT_PATH="$(pip show powerline-status | grep Location | awk '{ print $2 }')"
-  . $POWERLINE_STATUS_ROOT_PATH/powerline/bindings/zsh/powerline.zsh
-fi
 
 # some autoload setting
 autoload -Uz colors && colors
@@ -138,6 +128,16 @@ bindkey "^N" history-beginning-search-forward-end
 ## machine local config loading
 ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 [[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
+
+[[ -e $HOME/.rbenv ]] && eval "$(rbenv init -)" # rbenv initialize
+
+## initialize powerline for zsh
+which powerline-config 2>&1 > /dev/null
+ret=$?
+if [ $ret -eq 0 ]; then
+  export POWERLINE_STATUS_ROOT_PATH="$(pip show powerline-status | grep Location | awk '{ print $2 }')"
+  . $POWERLINE_STATUS_ROOT_PATH/powerline/bindings/zsh/powerline.zsh
+fi
 
 # enable compinit
 autoload -U compinit && compinit -u
