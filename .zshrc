@@ -1,19 +1,6 @@
 # use emacs key binding
 bindkey -e
 
-## functions
-function update-diff-highlight () {
-  local latest_url=https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight
-  local bin_dir=$HOME/bin
-  local bin=$bin_dir/diff-highlight
-  [ ! -e $bin_dir ] && mkdir $bin_dir
-  echo Download latest diff-highlight
-  curl $latest_url -o $bin
-  echo Set Execute Permission
-  chmod +x $bin
-  echo diff-highlight update is Done
-}
-
 ## configure command aliases
 case ${OSTYPE} in
   darwin*)
@@ -48,26 +35,6 @@ alias be="bundle exec"
 
 [[ -e $HOME/.rbenv ]] && eval "$(rbenv init -)" # rbenv initialize
 
-source $ZPLUG_HOME/init.zsh
-
-zplug "zplug/zplug"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-completions", use:src
-zplug "hchbaw/auto-fu.zsh", at:pu
-zplug "mollifier/anyframe"
-zplug "felixr/docker-zsh-completion"
-zplug "wakeful/zsh-packer"
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load --verbose
-
-
 ## initialize powerline for zsh
 which powerline-config 2>&1 > /dev/null
 ret=$?
@@ -75,34 +42,6 @@ if [ $ret -eq 0 ]; then
   export POWERLINE_STATUS_ROOT_PATH="$(pip show powerline-status | grep Location | awk '{ print $2 }')"
   . $POWERLINE_STATUS_ROOT_PATH/powerline/bindings/zsh/powerline.zsh
 fi
-
-# anyframe
-zstyle ":anyframe:selector:" use peco
-zstyle ":anyframe:selector:peco:" command 'peco --initial-filter SmartCase'
-
-bindkey '^x^b' anyframe-widget-checkout-git-branch
-
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
-
-bindkey '^xp' anyframe-widget-put-history
-bindkey '^x^p' anyframe-widget-put-history
-
-bindkey '^xg' anyframe-widget-cd-ghq-repository
-bindkey '^x^g' anyframe-widget-cd-ghq-repository
-
-bindkey '^xk' anyframe-widget-kill
-bindkey '^x^k' anyframe-widget-kill
-
-bindkey '^xi' anyframe-widget-insert-git-branch
-bindkey '^x^i' anyframe-widget-insert-git-branch
-
-bindkey '^xf' anyframe-widget-insert-filename
-bindkey '^x^f' anyframe-widget-insert-filename
-
-# docker-zsh-completion
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # some autoload setting
 autoload -Uz colors && colors
@@ -178,10 +117,6 @@ zstyle ':completion:*approximate:*' max-errors 2 NUMERIC
 
 bindkey "\e[Z" reverse-menu-complete                # Shift-Tabで補完候補を逆順する
 
-# for awscli
-which aws 2>&1 > /dev/null
-ret=$?
-[ $ret -eq 0 ] && . /usr/local/bin/aws_zsh_completer.sh
 
 #------------------------------------------------------------
 # 文字入力時にURLをエスケープする
@@ -207,5 +142,3 @@ ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 
 # enable compinit
 autoload -U compinit && compinit -u
-
-[[ -z $DISABLE_AUTO_FU_COMPLETION ]] && source $HOME/dotfiles/.zsh.d/auto-fu-config.zsh
