@@ -105,16 +105,6 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export GOPATH=$HOME/.go
 
-## for zplug
-case ${OSTYPE} in
-  darwin*)
-    export ZPLUG_HOME=/usr/local/opt/zplug
-    ;;
-  *)
-    export ZPLUG_HOME=~/.zplug
-    ;;
-esac
-
 [[ -e $HOME/.rbenv ]] && export PATH=$HOME/.rbenv/bin:$PATH
 
 # machine local config loading
