@@ -16,7 +16,6 @@ case ${OSTYPE} in
 esac
 
 alias g="git"
-alias gitw="GIT_SSH=$HOME/dotfiles/other/git-wrap.sh git"
 alias t="tmux"
 alias ti="tig"
 
