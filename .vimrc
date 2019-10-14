@@ -53,7 +53,7 @@ if s:use_dein && v:version >= 704
     call dein#add('Shougo/dein.vim')
 
     " Color Scheme
-    call dein#add('wombat256.vim')
+    call dein#add('vim-scripts/wombat256.vim')
 
     " Help Document
     call dein#add('vim-jp/vimdoc-ja')
@@ -108,7 +108,7 @@ if s:use_dein && v:version >= 704
 
     " Syntax Support
     call dein#add('stephpy/vim-yaml')
-    call dein#add('nginx.vim', {'on_ft' : 'nginx' })
+    call dein#add('vim-scripts/nginx.vim', {'on_ft' : 'nginx' })
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
     call dein#add('elzr/vim-json')
     call dein#add('slim-template/vim-slim')
