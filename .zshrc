@@ -24,7 +24,6 @@ alias v="vim"
 
 alias l="ls -laF"
 alias ll="l"
-alias h="anyframe-widget-put-history"
 
 alias ..="cd .."
 alias ...="cd ../.."
