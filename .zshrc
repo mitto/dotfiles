@@ -9,6 +9,7 @@ case ${OSTYPE} in
     alias cisco="screen /dev/tty.usbserial 9600"
     alias buffalo="screen /dev/tty.usbserial 19200"
     alias edgemax="screen /dev/tty.usbserial 115200"
+    alias pip="pip3"
     ;;
   *)
     alias ls="ls -AF --color=auto"
