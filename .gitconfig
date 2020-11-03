@@ -6,6 +6,7 @@
 	editor = vim
 	preloadindex = true
 	fscache = true
+	pager = LESSCHARSET=utf-8 less
 [push]
 	default = simple
 [alias]
@@ -63,3 +64,7 @@
 	compactionHeuristic = true
 [interactive]
 	diffFilter = diff-highlight
+[pull]
+	rebase = false
+[log]
+	follow = true
