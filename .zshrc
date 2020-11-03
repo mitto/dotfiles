@@ -33,6 +33,9 @@ alias .....="cd ../../../.."
 
 alias be="bundle exec"
 
+alias mkd="mktemp -d"
+alias cdt="cd $(mkd)"
+
 # some autoload setting
 autoload -Uz colors && colors
 autoload history-search-end
