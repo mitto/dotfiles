@@ -57,7 +57,6 @@ setopt ignore_eof          # ^D でシェルを終了しない
 setopt notify              # バックグラウンド処理の状態変化をすぐに通知する
 setopt print_exit_value    # 終了ステータスが0以外の場合にステータスを表示する
 
-setopt share_history        # 他のシェルのコマンド履歴を共有する
 setopt append_history       # 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
 setopt hist_ignore_dups     # 直前と同じコマンドはヒストリに残さない
 setopt hist_ignore_all_dups # 重諷するコマンドが記録されるとき古い方を削除する
