@@ -63,7 +63,6 @@ setopt hist_ignore_dups     # 直前と同じコマンドはヒストリに残�
 setopt hist_ignore_all_dups # 重諷するコマンドが記録されるとき古い方を削除する
 setopt hist_reduce_blanks   # 余分なスペースを削除してヒストリに保存する
 setopt hist_save_no_dups    # ヒストリファイルに書き出すとき古いコマンドと同じ物を無視する
-setopt extended_history     # ヒストリファイルにコマンドラインだけではなく実行時刻と実行時間も保存する
 setopt inc_append_history   # すぐにヒストリファイルに追記する。
 
 # set completion options
