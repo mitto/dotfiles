@@ -110,6 +110,11 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin
 export N_PREFIX=$HOME/.n
 export PATH="$N_PREFIX/bin:$PATH"
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH=$HOME/.zsh/completion:$FPATH
+fi
+
 # machine local config loading
 ZSH_LOCAL_ENV_CONFIG_FILE=$HOME/.zshenv.local
 [[ -e $ZSH_LOCAL_ENV_CONFIG_FILE ]] && source $ZSH_LOCAL_ENV_CONFIG_FILE
