@@ -127,6 +127,9 @@ if s:use_dein && v:version >= 704
     call dein#add('tpope/vim-bundler')
     call dein#add('tpope/vim-rails')
 
+    " Packer Support
+    call dein#add('hashivim/vim-packer')
+
     " Terraform Support
     call dein#add('hashivim/vim-terraform')
     call dein#add('juliosueiras/vim-terraform-completion')
