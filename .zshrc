@@ -132,7 +132,7 @@ bindkey "^N" history-beginning-search-forward-end
 ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 [[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
 
-[[ -e $HOME/.rbenv ]] && eval "$(rbenv init -)" # rbenv initialize
+[[ -e $HOME/.rbenv ]] && eval "$(rbenv init - zsh)" # rbenv initialize
 
 ## initialize powerline for zsh
 which powerline-config 2>&1 > /dev/null
