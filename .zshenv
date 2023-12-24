@@ -94,7 +94,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad # for bsd ls
 ## 重複したパスを登録しない。
 typeset -U path
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export GOPATH=$HOME/.go
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin
 
 ## (N-/): 存在しないディレクトリは登録しない。
 ##    パス(...): ...という条件にマッチするパスのみ残す。
@@ -103,7 +104,6 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 
-export GOPATH=$HOME/.go
 
 [[ -e $HOME/.rbenv ]] && export PATH=$HOME/.rbenv/bin:$PATH
 
