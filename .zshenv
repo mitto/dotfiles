@@ -107,6 +107,9 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin
 
 [[ -e $HOME/.rbenv ]] && export PATH=$HOME/.rbenv/bin:$PATH
 
+export N_PREFIX=$HOME/.n
+export PATH="$N_PREFIX/bin:$PATH"
+
 # machine local config loading
 ZSH_LOCAL_ENV_CONFIG_FILE=$HOME/.zshenv.local
 [[ -e $ZSH_LOCAL_ENV_CONFIG_FILE ]] && source $ZSH_LOCAL_ENV_CONFIG_FILE
