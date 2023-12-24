@@ -95,7 +95,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad # for bsd ls
 typeset -U path
 
 export GOPATH=$HOME/.go
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin:$HOME/.local/bin
 
 ## (N-/): 存在しないディレクトリは登録しない。
 ##    パス(...): ...という条件にマッチするパスのみ残す。
