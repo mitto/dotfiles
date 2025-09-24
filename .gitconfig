@@ -9,6 +9,7 @@
 	pager = LESSCHARSET=utf-8 less
 [push]
 	default = simple
+	autoSetupRemote = true
 [alias]
 	a = add
 	ap = add -p
@@ -70,3 +71,7 @@
 	follow = true
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
