@@ -104,8 +104,12 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin:$HOME/.lo
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 
-
+# for rbenv
 [[ -e $HOME/.rbenv ]] && export PATH=$HOME/.rbenv/bin:$PATH
+
+# for git diff-highlight
+[[ -e /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight ]] && export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
+[[ -e /usr/share/git-core/contrib/diff-highlight ]] && export PATH=$PATH:/usr/share/git-core/contrib
 
 export N_PREFIX=$HOME/.n
 export PATH="$N_PREFIX/bin:$PATH"
