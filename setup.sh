@@ -33,6 +33,10 @@ case ${OSTYPE} in
   darwin*)
     create-symlink .brewfile
     ;;
+  linux*)
+    git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv || cd $HOME/.nodenv && git pull
+    git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build || cd $HOME/.nodenv/plugins/node-build && git pull
+    ;;
 esac
 
 create-folder $HOME/bin

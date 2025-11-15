@@ -107,6 +107,12 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin:$HOME/.lo
 # for rbenv
 [[ -e $HOME/.rbenv ]] && export PATH=$HOME/.rbenv/bin:$PATH
 
+# for nodenv
+if [ -e $HOME/.nodenv ]; then
+  FPATH=$HOME/.nodenv/completions:"$FPATH"
+  export PATH=$HOME/.nodenv/bin:$PATH
+fi
+
 # for git diff-highlight
 [[ -e /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight ]] && export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
 [[ -e /usr/share/git-core/contrib/diff-highlight ]] && export PATH=$PATH:/usr/share/git-core/contrib
