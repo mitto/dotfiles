@@ -186,3 +186,9 @@ bindkey '^]' ghq-fzf
 
 # enable compinit
 autoload -U compinit && compinit -u
+
+# keychain
+if which keychain &> /dev/null; then
+  keychain id_ed25519
+  source ~/.keychain/$HOST-sh
+fi
