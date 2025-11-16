@@ -268,6 +268,7 @@ let g:ale_linters = {
 \   'markdown': ['markdownlint'],
 \   'yaml': ['actionlint'],
 \   'python': ['ruff'],
+\   'hcl': ['packer'],
 \}
 
 " vim-airline上でALEのエラー/警告を表示
@@ -305,6 +306,7 @@ let g:ale_fixers = {
 \   'html': ['prettier'],
 \   'markdown': ['prettier'],
 \   'python': ['ruff'],
+\   'hcl': ['packer'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
