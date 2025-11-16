@@ -285,6 +285,10 @@ let g:ale_linters = {
 \   'ruby': ['rubocop'],
 \}
 
+" Docker Compose 経由で rubocop を使う場合の設定例:
+" let g:ale_ruby_rubocop_executable = 'docker'
+" let g:ale_ruby_rubocop_options = 'compose exec -T <service_name> rubocop'
+
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
 
