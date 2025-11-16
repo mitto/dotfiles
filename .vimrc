@@ -264,10 +264,12 @@ let g:ale_linters = {
 \   'python': ['ruff'],
 \}
 
-" Docker Compose 経由で rubocop を使う場合の設定例:
+" vim-airline上でALEのエラー/警告を表示
 let g:airline#extensions#ale#enabled = 1
 
+" 保存時にリントを実行
 let g:ale_lint_on_save = 1
+" テキスト変更時にリントを実行
 let g:ale_lint_on_text_changed = 1
 
 " テキスト変更時のリント遅延（ミリ秒）入力中の連続実行を防ぐ
