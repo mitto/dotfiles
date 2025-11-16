@@ -189,6 +189,10 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
+if which gh &> /dev/null; then
+  eval $(gh completion -s zsh)
+fi
+
 # enable compinit
 autoload -U compinit && compinit -u
 
