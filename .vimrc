@@ -107,7 +107,6 @@ if s:use_dein && v:version >= 704
     call dein#add('glidenote/keepalived-syntax.vim', {'on_ft' : 'keepalived'})
     call dein#add('elzr/vim-json')
     call dein#add('slim-template/vim-slim')
-    call dein#add('scrooloose/syntastic')
 
     " Powerline Support
     call dein#add('vim-airline/vim-airline')
@@ -275,20 +274,6 @@ nmap k <Plug>(accelerated_jk_gk)
 " vim-smartinput-endwise
 "------------------------------------------
 call smartinput_endwise#define_default_rules()
-
-"------------------------------------------
-" syntastic
-"------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" (Optional) Enable terraform plan to be include in filter
-let g:syntastic_terraform_tffilter_plan = 1
 
 "------------------------------------------
 " vim-terraform
