@@ -121,6 +121,9 @@ if type brew &>/dev/null; then
   FPATH=$HOME/.zsh/completion:$FPATH
 fi
 
+# for fallback fzf
+[[ -e $HOME/dotfiles/.vim/dein/repos/github.com/junegunn/fzf/bin/fzf ]] && export PATH=$PATH:$HOME/dotfiles/.vim/dein/repos/github.com/junegunn/fzf/bin
+
 # machine local config loading
 ZSH_LOCAL_ENV_CONFIG_FILE=$HOME/.zshenv.local
 [[ -e $ZSH_LOCAL_ENV_CONFIG_FILE ]] && source $ZSH_LOCAL_ENV_CONFIG_FILE
