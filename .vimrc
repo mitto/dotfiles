@@ -71,11 +71,6 @@ if s:use_dein && v:version >= 704
     call dein#add('kana/vim-textobj-user')
     call dein#add('rhysd/vim-textobj-ruby')
 
-    " Snippets
-    call dein#add('Shougo/neosnippet')
-    call dein#add('Shougo/neosnippet-snippets')
-    call dein#add('honza/vim-snippets')
-
     " Fuzzy Finder
     call dein#add('junegunn/fzf', {'build': './install --all'})
     call dein#add('junegunn/fzf.vim')
@@ -223,21 +218,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=245
 let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 2
-
-"------------------------------------------
-" neosnippet.vim
-"------------------------------------------
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
