@@ -279,6 +279,10 @@ let g:ale_linters = {
 \   'sh': ['shell', 'shellcheck'],
 \   'ansible': ['ansible_lint', 'yamllint'],
 \   'dockerfile': ['hadolint'],
+\   'javascript': ['eslint'],
+\   'css': ['stylelint'],
+\   'html': ['htmlhint'],
+\   'markdown': ['markdownlint'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
@@ -308,11 +312,35 @@ let g:ale_open_list = 0
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'eruby': ['erblint'],
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'html': ['prettier'],
+\   'markdown': ['prettier'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
 " 保存時に自動修正
 let g:ale_fix_on_save = 1
+
+" prettier を npx 経由で実行
+let g:ale_javascript_prettier_executable = 'npx'
+let g:ale_javascript_prettier_options = 'prettier@latest'
+let g:ale_css_prettier_executable = 'npx'
+let g:ale_css_prettier_options = 'prettier@latest'
+let g:ale_html_prettier_executable = 'npx'
+let g:ale_html_prettier_options = 'prettier@latest'
+let g:ale_markdown_prettier_executable = 'npx'
+let g:ale_markdown_prettier_options = 'prettier@latest'
+
+" javascript製 linter を npx 経由で実行
+let g:ale_javascript_eslint_executable = 'npx'
+let g:ale_javascript_eslint_options = 'eslint'
+let g:ale_css_stylelint_executable = 'npx'
+let g:ale_css_stylelint_options = 'stylelint'
+let g:ale_html_htmlhint_executable = 'npx'
+let g:ale_html_htmlhint_options = 'htmlhint'
+let g:ale_markdown_markdownlint_executable = 'npx'
+let g:ale_markdown_markdownlint_options = 'markdownlint-cli'
 
 " LSP 機能を有効化
 let g:ale_completion_enabled = 1
