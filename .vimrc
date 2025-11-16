@@ -277,6 +277,7 @@ let g:ale_linters = {
 \   'terraform': ['terraform', 'tflint'],
 \   'eruby': ['erb', 'erblint'],
 \   'sh': ['shell', 'shellcheck'],
+\   'ansible': ['ansible_lint', 'yamllint'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
