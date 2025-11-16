@@ -15,9 +15,9 @@ case ${OSTYPE} in
     ;;
   *)
     alias ls="ls -AF --color=auto"
-    # WSL環境の場合はclip.exe、それ以外はxclipを使用
+    # WSL環境の場合はwin32yank.exe、それ以外はxclipを使用
     if grep -qi microsoft /proc/version 2>/dev/null; then
-      export TMUX_CLIPBOARD_CMD="clip.exe"
+      export TMUX_CLIPBOARD_CMD="win32yank.exe -i"
     else
       export TMUX_CLIPBOARD_CMD="xclip -selection clipboard"
     fi
