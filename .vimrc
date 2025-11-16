@@ -76,6 +76,10 @@ if s:use_dein && v:version >= 704
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('honza/vim-snippets')
 
+    " Fuzzy Finder
+    call dein#add('junegunn/fzf', {'build': './install --all'})
+    call dein#add('junegunn/fzf.vim')
+
     " Indent Support
     call dein#add('nathanaelkane/vim-indent-guides')
 
@@ -391,3 +395,17 @@ let g:terraform_completion_keys = 1
 
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 let g:terraform_registry_module_completion = 0
+
+"------------------------------------------
+" fzf.vim
+"------------------------------------------
+" ファイル検索
+nnoremap <Leader><C-p> :Files<CR>
+" バッファ一覧
+nnoremap <Leader><C-b> :Buffers<CR>
+" テキスト検索（ripgrep使用）
+nnoremap <Leader><C-f> :Rg<CR>
+" Git管理ファイル検索
+nnoremap <Leader>gf :GFiles<CR>
+" コマンド履歴
+nnoremap <Leader>h :History:<CR>
