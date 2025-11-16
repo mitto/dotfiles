@@ -11,9 +11,16 @@ case ${OSTYPE} in
     alias edgemax="screen /dev/tty.usbserial 115200"
     alias python=/usr/local/bin/python3
     alias pip="pip3"
+    export TMUX_CLIPBOARD_CMD="pbcopy"
     ;;
   *)
     alias ls="ls -AF --color=auto"
+    # WSL環境の場合はclip.exe、それ以外はxclipを使用
+    if grep -qi microsoft /proc/version 2>/dev/null; then
+      export TMUX_CLIPBOARD_CMD="clip.exe"
+    else
+      export TMUX_CLIPBOARD_CMD="xclip -selection clipboard"
+    fi
     ;;
 esac
 
