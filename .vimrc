@@ -68,23 +68,13 @@ if s:use_dein && v:version >= 704
     call dein#add('kana/vim-textobj-user')
     call dein#add('rhysd/vim-textobj-ruby')
 
-    " Library
-    "" Asynchronous
-    call dein#add('Shougo/vimproc', {'build': 'make'})
-
     " Snippets
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('honza/vim-snippets')
 
-    " Filer
-    call dein#add('Shougo/vimfiler')
-
     " Indent Support
     call dein#add('nathanaelkane/vim-indent-guides')
-
-    " Unite
-    call dein#add('Shougo/unite.vim')
 
     " Code Execute
     call dein#add('thinca/vim-quickrun')
