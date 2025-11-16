@@ -198,6 +198,8 @@ endif
 
 au BufNewFile,BufRead Schemafile setl ft=ruby " for ridgepole schemafile"
 
+autocmd FileType make setlocal noexpandtab " for Makefile
+
 "------------------------------------------
 "nginx.vim
 "------------------------------------------
