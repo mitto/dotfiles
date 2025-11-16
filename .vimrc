@@ -78,9 +78,6 @@ if s:use_dein && v:version >= 704
     " Indent Support
     call dein#add('nathanaelkane/vim-indent-guides')
 
-    " Code Execute
-    call dein#add('thinca/vim-quickrun')
-
     " HTML Support
     call dein#add('mattn/emmet-vim')
 
