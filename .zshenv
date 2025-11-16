@@ -113,6 +113,9 @@ if [ -e $HOME/.nodenv ]; then
   export PATH=$HOME/.nodenv/bin:$PATH
 fi
 
+# for tfenv
+[[ -e $HOME/.tfenv ]] && export PATH=$HOME/.tfenv/bin:$PATH
+
 # for git diff-highlight
 [[ -e /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight ]] && export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
 [[ -e /usr/share/git-core/contrib/diff-highlight ]] && export PATH=$PATH:/usr/share/git-core/contrib

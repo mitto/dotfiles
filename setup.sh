@@ -36,8 +36,23 @@ case ${OSTYPE} in
   linux*)
     git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv || cd $HOME/.nodenv && git pull
     git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build || cd $HOME/.nodenv/plugins/node-build && git pull
+    git clone --depth=1 https://github.com/tfutils/tfenv.git $HOME/.tfenv || cd $HOME/.tfenv && git pull
     ;;
 esac
+
+# Check if terraform-ls is installed
+if ! which terraform-ls > /dev/null 2>&1; then
+  echo "=========================================="
+  echo "WARNING: terraform-ls is not installed!"
+  echo "Please install terraform-ls for Terraform LSP support."
+  echo ""
+  echo "Installation guide:"
+  echo "  https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md"
+  echo ""
+  echo "macOS: brew install terraform-ls"
+  echo "Other: go install github.com/hashicorp/terraform-ls@latest"
+  echo "=========================================="
+fi
 
 create-folder $HOME/bin
 create-folder $HOME/.rbenv/plugins
