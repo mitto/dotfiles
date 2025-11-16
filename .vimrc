@@ -283,6 +283,12 @@ let g:ale_linters = {
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
 
+" テキスト変更時のリント遅延（ミリ秒）入力中の連続実行を防ぐ
+let g:ale_lint_delay = 200
+
+" パフォーマンス設定：2MBを超えるファイルではALEを無効化
+let g:ale_maximum_file_size = 2097152
+
 " エラー表示設定
 let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 let g:ale_sign_error = '❌'
