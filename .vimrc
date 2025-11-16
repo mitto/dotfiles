@@ -151,6 +151,14 @@ set backup
 set backupcopy=yes
 set backupdir=~/dotfiles/.vim/backup
 set clipboard+=autoselect
+
+" クリップボード連携
+" 環境変数 TMUX_CLIPBOARD_CMD (.zshrcで設定済み) を使用
+" win32yank.exe は winget install Neovim.Neovim で導入する
+if !empty($TMUX_CLIPBOARD_CMD)
+    execute 'vnoremap <Space>y :w !' . $TMUX_CLIPBOARD_CMD . '<CR><CR>'
+endif
+
 set completeopt=menuone,preview
 set cursorline
 set directory=~/dotfiles/.vim/swap
