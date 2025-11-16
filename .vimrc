@@ -11,6 +11,9 @@ if !&compatible
   set nocompatible
 endif
 
+" Leaderキーをカンマに設定
+let mapleader = ","
+
 " Prepare .vim dir
 let s:vimdir = $HOME . "/dotfiles/.vim"
 if has("vim_starting")
