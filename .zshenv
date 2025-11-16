@@ -116,10 +116,6 @@ fi
 # for git diff-highlight
 [[ -e /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight ]] && export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
 [[ -e /usr/share/git-core/contrib/diff-highlight ]] && export PATH=$PATH:/usr/share/git-core/contrib
-
-export N_PREFIX=$HOME/.n
-export PATH="$N_PREFIX/bin:$PATH"
-
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
   FPATH=$HOME/.zsh/completion:$FPATH
