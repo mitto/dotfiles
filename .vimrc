@@ -185,6 +185,13 @@ set wildmenu
 set wrapscan
 set writebackup
 
+" 更新頻度を高速化（Vimのupdatetimeを100msに設定）
+" デフォルトは4000ms（4秒）で遅いため短縮
+set updatetime=100
+
+" サイン列を常に表示（差分がない時も列が表示されるので画面がずれない）
+set signcolumn=yes
+
 let g:netrw_dirhistmax = 0
 
 if !exists('loaded_matchit')
@@ -389,3 +396,68 @@ nnoremap <Leader><C-f> :Rg<CR>
 nnoremap <Leader>gf :GFiles<CR>
 " コマンド履歴
 nnoremap <Leader>h :History:<CR>
+
+"------------------------------------------
+" vim-gitgutter
+"------------------------------------------
+let g:gitgutter_sign_allow_clobber = 1
+let g:gitgutter_set_sign_backgrounds = 1
+
+" 変更された行全体を背景色でハイライト
+let g:gitgutter_highlight_lines = 1
+
+" wombat256mod用の背景色カスタマイズ（編集画面は薄く）
+augroup GitGutterColors
+  autocmd!
+  autocmd ColorScheme * highlight GitGutterAddLine ctermbg=22 guibg=#001100
+  autocmd ColorScheme * highlight GitGutterChangeLine ctermbg=17 guibg=#000011
+  autocmd ColorScheme * highlight GitGutterDeleteLine ctermbg=52 guibg=#110000
+  autocmd ColorScheme * highlight GitGutterChangeDeleteLine ctermbg=58 guibg=#111100
+augroup END
+
+" 初回読み込み時にも適用
+highlight GitGutterAddLine ctermbg=22 guibg=#001100
+highlight GitGutterChangeLine ctermbg=17 guibg=#000011
+highlight GitGutterDeleteLine ctermbg=52 guibg=#110000
+highlight GitGutterChangeDeleteLine ctermbg=58 guibg=#111100
+
+" プレビューウィンドウ用のdiffハイライト（元の色で見やすく）
+highlight DiffAdd ctermbg=22 ctermfg=green guibg=#003300 guifg=#00ff00
+highlight DiffDelete ctermbg=52 ctermfg=red guibg=#330000 guifg=#ff0000
+highlight DiffChange ctermbg=17 ctermfg=yellow guibg=#000033 guifg=#ffff00
+highlight DiffText ctermbg=88 ctermfg=white guibg=#550000 guifg=#ffffff
+
+" ハンク間移動（サイクル：最後まで行ったら最初に戻る）
+function! GitGutterNextHunkCycle()
+  let line = line('.')
+  silent! GitGutterNextHunk
+  if line('.') == line
+    1
+    GitGutterNextHunk
+  endif
+endfunction
+
+function! GitGutterPrevHunkCycle()
+  let line = line('.')
+  silent! GitGutterPrevHunk
+  if line('.') == line
+    normal! G
+    GitGutterPrevHunk
+  endif
+endfunction
+
+nmap ]h :call GitGutterNextHunkCycle()<CR>
+nmap [h :call GitGutterPrevHunkCycle()<CR>
+
+" ハンク操作
+" ハンクをステージング
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
+" ハンクをアンドゥ
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+" ハンクをプレビュー
+nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+" プレビューウィンドウを閉じる
+nmap <Leader>hc :pclose<CR>
+
+" 変更されていない行を折りたたむ（もう一度実行で元に戻す）
+nmap <Leader>hf :GitGutterFold<CR>
