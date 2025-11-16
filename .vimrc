@@ -282,7 +282,7 @@ call smartinput_endwise#define_default_rules()
 " ALE (Asynchronous Lint Engine)
 "------------------------------------------
 let g:ale_linters = {
-\   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby'],
+\   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby', 'solargraph'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
@@ -297,6 +297,24 @@ let g:ale_set_loclist = 1
 let g:ale_open_list = 0
 
 let g:ale_fix_on_save = 1
+
+" LSP 機能を有効化
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+
+" LSP キーマップ
+" タブで定義ジャンプ
+nmap <silent> gd <Plug>(ale_go_to_definition_in_tab)
+" 水平分割で定義ジャンプ
+nmap <silent> gs <Plug>(ale_go_to_definition_in_split)
+" 垂直分割で定義ジャンプ
+nmap <silent> gv <Plug>(ale_go_to_definition_in_vsplit)
+" 型定義ジャンプ
+nmap <silent> gy <Plug>(ale_go_to_type_definition)
+" 参照検索
+nmap <silent> gr <Plug>(ale_find_references)
+" ドキュメント表示
+nmap <silent> K <Plug>(ale_hover)
 
 " エラー間の移動
 nmap <silent> [e <Plug>(ale_previous_wrap)
