@@ -231,10 +231,6 @@ let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 2
 
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
-
 "------------------------------------------
 " vim-json
 "------------------------------------------
@@ -469,3 +465,8 @@ nmap <Leader>hc :pclose<CR>
 
 " 変更されていない行を折りたたむ（もう一度実行で元に戻す）
 nmap <Leader>hf :GitGutterFold<CR>
+
+" load local config
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
