@@ -72,15 +72,6 @@ if s:use_dein && v:version >= 704
     "" Asynchronous
     call dein#add('Shougo/vimproc', {'build': 'make'})
 
-    " Completion
-    call dein#add('Shougo/deoplete.nvim')
-    if !has('nvim')
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-    let g:deoplete#enable_at_startup = 1
-    call dein#add('Shougo/neco-syntax')
-
     " Snippets
     call dein#add('Shougo/neosnippet')
     call dein#add('Shougo/neosnippet-snippets')
