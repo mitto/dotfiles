@@ -134,10 +134,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-## machine local config loading
-ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
-[[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
-
 [[ -e $HOME/.rbenv ]] && eval "$(rbenv init - zsh)" # rbenv initialize
 [[ -e $HOME/.nodenv ]] && eval "$(nodenv init - zsh)" # nodenv initialize
 
@@ -199,3 +195,7 @@ if which keychain &> /dev/null; then
   keychain id_ed25519
   source ~/.keychain/$HOST-sh
 fi
+
+## machine local config loading
+ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
+[[ -e $ZSH_LOCAL_CONFIG_FILE ]] && source $ZSH_LOCAL_CONFIG_FILE
