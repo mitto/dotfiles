@@ -274,6 +274,7 @@ call smartinput_endwise#define_default_rules()
 "------------------------------------------
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby', 'solargraph'],
+\   'terraform': ['terraform', 'tflint'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
