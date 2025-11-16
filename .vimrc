@@ -282,7 +282,7 @@ call smartinput_endwise#define_default_rules()
 " ALE (Asynchronous Lint Engine)
 "------------------------------------------
 let g:ale_linters = {
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
