@@ -134,13 +134,43 @@ ZSH_LOCAL_CONFIG_FILE=$HOME/.zshrc.local
 [[ -e $HOME/.rbenv ]] && eval "$(rbenv init - zsh)" # rbenv initialize
 [[ -e $HOME/.nodenv ]] && eval "$(nodenv init - zsh)" # nodenv initialize
 
-## initialize powerline for zsh
-which powerline-config 2>&1 > /dev/null
-ret=$?
-if [ $ret -eq 0 ]; then
-  export POWERLINE_STATUS_ROOT_PATH="$(pip show powerline-status | grep Location | awk '{ print $2 }')"
-  . $POWERLINE_STATUS_ROOT_PATH/powerline/bindings/zsh/powerline.zsh
+## initialize powerline for zsh/tmux
+POWERLINE_ZSH_PATHS=(
+  # Fedora/RHEL RPM
+  "/usr/share/powerline/zsh/powerline.zsh"
+  # pip --user
+  "$HOME/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh"
+)
+
+POWERLINE_TMUX_PATHS=(
+  # Fedora/RHEL RPM
+  "/usr/share/tmux/powerline.conf"
+  # pip --user
+  "$HOME/.local/lib/python*/site-packages/powerline/bindings/tmux/powerline.conf"
+)
+
+### pip経由でインストールされている場合のパス追加
+if which powerline-config &> /dev/null; then
+  PIP_ROOT="$(pip show powerline-status 2>/dev/null | grep Location | awk '{print $2}')/powerline"
+  POWERLINE_ZSH_PATHS+=("$PIP_ROOT/bindings/zsh/powerline.zsh")
+  POWERLINE_TMUX_PATHS+=("$PIP_ROOT/bindings/tmux/powerline.conf")
 fi
+
+### zsh用スクリプトを探してsource
+for zsh_script in $POWERLINE_ZSH_PATHS; do
+  if [[ -f "$zsh_script" ]]; then
+    source "$zsh_script"
+    break
+  fi
+done
+
+### tmux用設定ファイルパスを探してexport
+for tmux_conf in $POWERLINE_TMUX_PATHS; do
+  if [[ -f "$tmux_conf" ]]; then
+    export POWERLINE_TMUX_CONF="$tmux_conf"
+    break
+  fi
+done
 
 ## initialize fzf searching
 function ghq-fzf() {
