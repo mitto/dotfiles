@@ -281,6 +281,8 @@ let g:ale_linters = {
 \   'dockerfile': ['hadolint'],
 \   'javascript': ['eslint'],
 \   'css': ['stylelint'],
+\   'scss': ['stylelint'],
+\   'sass': ['stylelint'],
 \   'html': ['htmlhint'],
 \   'markdown': ['markdownlint'],
 \   'python': ['ruff'],
@@ -315,6 +317,8 @@ let g:ale_fixers = {
 \   'eruby': ['erblint'],
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
+\   'scss': ['prettier'],
+\   'sass': ['prettier'],
 \   'html': ['prettier'],
 \   'markdown': ['prettier'],
 \   'python': ['ruff'],
@@ -329,6 +333,10 @@ let g:ale_javascript_prettier_executable = 'npx'
 let g:ale_javascript_prettier_options = 'prettier@latest'
 let g:ale_css_prettier_executable = 'npx'
 let g:ale_css_prettier_options = 'prettier@latest'
+let g:ale_scss_prettier_executable = 'npx'
+let g:ale_scss_prettier_options = 'prettier@latest'
+let g:ale_sass_prettier_executable = 'npx'
+let g:ale_sass_prettier_options = 'prettier@latest'
 let g:ale_html_prettier_executable = 'npx'
 let g:ale_html_prettier_options = 'prettier@latest'
 let g:ale_markdown_prettier_executable = 'npx'
@@ -339,6 +347,10 @@ let g:ale_javascript_eslint_executable = 'npx'
 let g:ale_javascript_eslint_options = 'eslint'
 let g:ale_css_stylelint_executable = 'npx'
 let g:ale_css_stylelint_options = 'stylelint'
+let g:ale_scss_stylelint_executable = 'npx'
+let g:ale_scss_stylelint_options = 'stylelint'
+let g:ale_sass_stylelint_executable = 'npx'
+let g:ale_sass_stylelint_options = 'stylelint'
 let g:ale_html_htmlhint_executable = 'npx'
 let g:ale_html_htmlhint_options = 'htmlhint'
 let g:ale_markdown_markdownlint_executable = 'npx'
