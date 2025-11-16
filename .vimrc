@@ -278,6 +278,7 @@ let g:ale_linters = {
 \   'eruby': ['erb', 'erblint'],
 \   'sh': ['shell', 'shellcheck'],
 \   'ansible': ['ansible_lint', 'yamllint'],
+\   'dockerfile': ['hadolint'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
