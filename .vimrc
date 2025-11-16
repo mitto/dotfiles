@@ -287,6 +287,13 @@ let g:ale_lint_on_text_changed = 1
 let g:ale_set_loclist = 1
 let g:ale_open_list = 0
 
+" Fixer 設定（自動修正ツール）
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" 保存時に自動修正
 let g:ale_fix_on_save = 1
 
 " LSP 機能を有効化
