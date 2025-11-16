@@ -283,6 +283,7 @@ let g:ale_linters = {
 \   'css': ['stylelint'],
 \   'html': ['htmlhint'],
 \   'markdown': ['markdownlint'],
+\   'python': ['ruff'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
@@ -316,6 +317,7 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'html': ['prettier'],
 \   'markdown': ['prettier'],
+\   'python': ['ruff'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
