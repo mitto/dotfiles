@@ -108,6 +108,9 @@ if s:use_dein && v:version >= 704
     call dein#add('elzr/vim-json')
     call dein#add('slim-template/vim-slim')
 
+    " Linting
+    call dein#add('dense-analysis/ale')
+
     " Powerline Support
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -274,6 +277,26 @@ nmap k <Plug>(accelerated_jk_gk)
 " vim-smartinput-endwise
 "------------------------------------------
 call smartinput_endwise#define_default_rules()
+
+"------------------------------------------
+" ALE (Asynchronous Lint Engine)
+"------------------------------------------
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 1
+
+" エラーをロケーションリストに表示（手動で :lopen で開く）
+let g:ale_set_loclist = 1
+let g:ale_open_list = 0
+
+let g:ale_fix_on_save = 1
+
+" エラー間の移動
+nmap <silent> [e <Plug>(ale_previous_wrap)
+nmap <silent> ]e <Plug>(ale_next_wrap)
 
 "------------------------------------------
 " vim-terraform
