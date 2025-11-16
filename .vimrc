@@ -276,6 +276,7 @@ let g:ale_linters = {
 \   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby', 'solargraph'],
 \   'terraform': ['terraform', 'tflint'],
 \   'eruby': ['erb', 'erblint'],
+\   'sh': ['shell', 'shellcheck'],
 \}
 
 " Docker Compose 経由で rubocop を使う場合の設定例:
