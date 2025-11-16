@@ -285,6 +285,7 @@ let g:ale_linters = {
 \   'sass': ['stylelint'],
 \   'html': ['htmlhint'],
 \   'markdown': ['markdownlint'],
+\   'yaml': ['actionlint'],
 \   'python': ['ruff'],
 \}
 
