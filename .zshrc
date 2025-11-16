@@ -176,6 +176,8 @@ for tmux_conf in $POWERLINE_TMUX_PATHS; do
 done
 
 ## initialize fzf searching
+source <(fzf --zsh)
+
 function ghq-fzf() {
   local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
   if [ -n "$src" ]; then
