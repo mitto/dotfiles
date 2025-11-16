@@ -254,7 +254,7 @@ call smartinput_endwise#define_default_rules()
 "------------------------------------------
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'brakeman', 'rails_best_practices', 'reek', 'ruby', 'solargraph'],
-\   'terraform': ['terraform', 'tflint'],
+\   'terraform': ['terraform', 'tflint', 'terraform_ls'],
 \   'eruby': ['erb', 'erblint'],
 \   'sh': ['shell', 'shellcheck'],
 \   'ansible': ['ansible_lint', 'yamllint'],
@@ -343,6 +343,18 @@ let g:ale_markdown_markdownlint_options = 'markdownlint-cli'
 " LSP 機能を有効化
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
+
+" ALE用のomni補完関数を設定
+set omnifunc=ale#completion#OmniFunc
+
+" 補完メニューの操作キーマップ
+" Tabで次の候補、Shift-Tabで前の候補
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Enterで確定
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" Ctrl+Shift+Oで手動補完をトリガー
+inoremap <C-S-o> <C-x><C-o>
 
 " LSP キーマップ
 " タブで定義ジャンプ
