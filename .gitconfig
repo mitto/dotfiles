@@ -13,10 +13,12 @@
 [alias]
 	a = add
 	ap = add -p
-	b = branch
+	b = branch --format='%(if)%(HEAD)%(then)*%(else)%(if)%(worktreepath)%(then)+%(else) %(end)%(end) %(if)%(HEAD)%(then)%(color:green)%(else)%(if)%(worktreepath)%(then)%(color:cyan)%(end)%(end)%(refname:short)%(color:reset) - %(committerdate:relative) %(color:yellow)%(upstream:track)%(color:reset)%(if)%(worktreepath)%(then)%(if)%(HEAD)%(then)%(else) %(color:magenta)(%(worktreepath))%(color:reset)%(end)%(end)'
 	back = reset HEAD^
 	bd = branch -D
 	bf = branch -f
+	bm = !git branch --merged | grep -Ev '^[*+]|^\\s*(main|develop|master)$' | sed 's/^\\s*//'
+	bmd = !git bm | xargs git branch -d
 	c = commit
 	ca = commit --amend
 	cb = checkout -b
