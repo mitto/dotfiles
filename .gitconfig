@@ -82,3 +82,7 @@
 	defaultBranch = main
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[grep]
+	lineNumber = true
+[branch]
+	sort = -committerdate
