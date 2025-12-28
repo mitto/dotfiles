@@ -189,6 +189,31 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
+function sshs {
+  if which ec2ssh &> /dev/null; then
+    ec2ssh update
+  fi
+  t=$(grep -v '^#' ~/.ssh/config | grep 'Host ' | cut -f2 -d' ' | fzf --preview "cat ~/.ssh/config | sed -nE '/^Host ({}|\*)( *#.*)?$/,/^$/p'")
+  if [ -n "$t" ]; then
+    ssh_cmd="ssh $t"
+    echo "do: $ssh_cmd"
+
+    # 現在のシェルを判定
+    if [ -n "$ZSH_VERSION" ]; then
+      # ZSHの場合
+      print -s "$ssh_cmd"  # ZSHのヒストリーにコマンドを追加
+      eval "$ssh_cmd"
+    elif [ -n "$BASH_VERSION" ]; then
+      # Bashの場合
+      # 新しいシェルを起動してコマンドを実行（これによりヒストリーに残る）
+      bash -ic "$ssh_cmd"
+    else
+      # その他のシェルの場合はそのまま実行
+      eval "$ssh_cmd"
+    fi
+  fi
+}
+
 if which gh &> /dev/null; then
   eval $(gh completion -s zsh)
 fi
