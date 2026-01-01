@@ -54,6 +54,23 @@ if ! which terraform-ls > /dev/null 2>&1; then
   echo "=========================================="
 fi
 
+# Check if pipx is installed and setup powerline-status
+if ! which pipx > /dev/null 2>&1; then
+  echo "=========================================="
+  echo "WARNING: pipx is not installed!"
+  echo "Please install pipx for Python CLI tool management."
+  echo ""
+  echo "macOS: brew install pipx && pipx ensurepath"
+  echo "Linux: python3 -m pip install --user pipx && pipx ensurepath"
+  echo "=========================================="
+else
+  # Install powerline-status via pipx if not already installed
+  if ! pipx list 2>/dev/null | grep -q powerline-status; then
+    echo "Installing powerline-status via pipx..."
+    pipx install powerline-status
+  fi
+fi
+
 create-folder $HOME/bin
 create-folder $HOME/.rbenv/plugins
 
