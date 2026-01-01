@@ -152,11 +152,19 @@ POWERLINE_TMUX_PATHS=(
   "$HOME/.local/lib/python*/site-packages/powerline/bindings/tmux/powerline.conf"
 )
 
-### pip経由でインストールされている場合のパス追加
+### pip/pipx経由でインストールされている場合のパス追加
 if which powerline-config &> /dev/null; then
-  PIP_ROOT="$(pip show powerline-status 2>/dev/null | grep Location | awk '{print $2}')/powerline"
-  POWERLINE_ZSH_PATHS+=("$PIP_ROOT/bindings/zsh/powerline.zsh")
-  POWERLINE_TMUX_PATHS+=("$PIP_ROOT/bindings/tmux/powerline.conf")
+  # シンボリックリンクを解決してsite-packagesのパスを導出
+  _powerline_bin=$(realpath "$(which powerline-config)")
+  _powerline_venv=$(dirname $(dirname "$_powerline_bin"))
+  for _pypath in "$_powerline_venv"/lib/python*/site-packages/powerline; do
+    if [[ -d "$_pypath" ]]; then
+      POWERLINE_ZSH_PATHS+=("$_pypath/bindings/zsh/powerline.zsh")
+      POWERLINE_TMUX_PATHS+=("$_pypath/bindings/tmux/powerline.conf")
+      break
+    fi
+  done
+  unset _powerline_bin _powerline_venv _pypath
 fi
 
 ### zsh用スクリプトを探してsource
