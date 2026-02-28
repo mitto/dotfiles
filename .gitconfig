@@ -7,6 +7,7 @@
 	preloadindex = true
 	fscache = true
 	pager = LESSCHARSET=utf-8 less
+	quotePath = false
 [push]
 	default = simple
 	autoSetupRemote = true
