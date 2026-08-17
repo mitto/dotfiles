@@ -138,18 +138,24 @@ bindkey "^N" history-beginning-search-forward-end
 [[ -e $HOME/.nodenv ]] && eval "$(nodenv init - zsh)" # nodenv initialize
 
 ## initialize powerline for zsh/tmux
+# パスをダブルクォートで囲むとzshは中のワイルドカードをglob展開しない
+# (N) はglob qualifierのNULL_GLOB指定で、「マッチしなかったパターンは no matches found エラーにせず、静かに取り除く」という意味。
 POWERLINE_ZSH_PATHS=(
   # Fedora/RHEL RPM
-  "/usr/share/powerline/zsh/powerline.zsh"
+  /usr/share/powerline/zsh/powerline.zsh(N)
   # pip --user
-  "$HOME/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh"
+  $HOME/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh(N)
+  # pipx
+  $HOME/.local/pipx/venvs/powerline-status/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh(N)
 )
 
 POWERLINE_TMUX_PATHS=(
   # Fedora/RHEL RPM
-  "/usr/share/tmux/powerline.conf"
+  /usr/share/tmux/powerline.conf(N)
   # pip --user
-  "$HOME/.local/lib/python*/site-packages/powerline/bindings/tmux/powerline.conf"
+  $HOME/.local/lib/python*/site-packages/powerline/bindings/tmux/powerline.conf(N)
+  # pipx
+  $HOME/.local/pipx/venvs/powerline-status/lib/python*/site-packages/powerline/bindings/tmux/powerline.conf(N)
 )
 
 ### pip/pipx経由でインストールされている場合のパス追加
