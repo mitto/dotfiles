@@ -163,7 +163,8 @@ if which powerline-config &> /dev/null; then
   # シンボリックリンクを解決してsite-packagesのパスを導出
   _powerline_bin=$(realpath "$(which powerline-config)")
   _powerline_venv=$(dirname $(dirname "$_powerline_bin"))
-  for _pypath in "$_powerline_venv"/lib/python*/site-packages/powerline; do
+  # powerline-configがPATHにあってもモジュール実体が無い場合インストールにglobがマッチせず、シェル起動時にエラー表示が出てしまうのを抑制する
+  for _pypath in "$_powerline_venv"/lib/python*/site-packages/powerline(N); do
     if [[ -d "$_pypath" ]]; then
       POWERLINE_ZSH_PATHS+=("$_pypath/bindings/zsh/powerline.zsh")
       POWERLINE_TMUX_PATHS+=("$_pypath/bindings/tmux/powerline.conf")
