@@ -22,7 +22,7 @@ function create-symlink () {
   fi
 }
 
-dotfiles=( .zshrc .zshenv .tmux.conf .screenrc .vimrc .gemrc .gitconfig .gitignore_global .npmrc )
+dotfiles=( .zshrc .zshenv .tmux.conf .screenrc .vimrc .gemrc .gitconfig .gitignore_global .npmrc .terraformrc )
 
 for file in ${dotfiles[@]}
 do
